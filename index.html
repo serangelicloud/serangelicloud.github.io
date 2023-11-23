@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Francesco Serangeli's Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+        section {
+            margin: 20px 0;
+        }
+        h2 {
+            color: #333;
+        }
+        a {
+            color: #1a0dab;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1, h2 {
+    transition: color 0.5s, transform 0.3s;
+    }
+
+    h1:hover, h2:hover {
+        color: #1500ff;
+    }
+
+    .content {
+        transition: all 0.3s;
+    }
+
+    .content:hover {
+        transform: scale(1.01);
+        background-color: rgba(163, 163, 163, 0.356);
+    }
+
+    #backToTop {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom of the page */
+            right: 30px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: #1a0dab; /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+            font-size: 18px; /* Increase font size */
+        }
+
+        #backToTop:hover {
+            background-color: #555; /* Add a dark-grey background on hover */
+        }
+    </style>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get all links
+            var links = document.querySelectorAll("a[href^='#']");
+            
+            // Add smooth scrolling to all links
+            for (var i = 0; i < links.length; i++){
+                links[i].addEventListener("click", function(event) {
+                    // Prevent default action
+                    event.preventDefault();
+
+                    // Get the target element
+                    var target = document.querySelector(this.getAttribute("href"));
+
+                    // Smooth scroll to target
+                    target.scrollIntoView({behavior: "smooth"});
+                });
+            }
+        });
+        // Add your new JavaScript here
+
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            var backToTopButton = document.getElementById("backToTop");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            window.scrollTo({top: 0, behavior: 'smooth'}); // For all browsers
+        }
+    </script>
+</head>
+<body>
+    <div class="container ">
+        <header>
+            <h1>Francesco Serangeli</h1>
+            <p>A passionate programmer and car enthusiast with great communication skills.</p>
+        </header>
+        <section class="content">
+            <h2>About Me</h2>
+            <p>My name is Francesco Serangeli. I'm a 17-year-old programmer who is passionate about cars. I'm currently studying psychology and have developed strong communication skills. I'm proficient in Python, HTML, CSS, JavaScript, and have some experience with Java and C++.</p>
+        </section>
+        <section class="content">
+            <h2>Projects</h2>
+            <p>I'm currently working on a safe and anonymous chat application. More details will be available soon.</p>
+        </section>
+        <section class="content">
+            <h2>Contact Me</h2>
+            <p>You can reach me through the following channels:</p>
+            <ul>
+                <li>Email: <a href="mailto:visposer@gmail.com">visposer@gmail.com</a></li>
+                <li>GitHub: <a href="https://github.com/serangelicloud">serangelicloud</a></li>
+                <li>Instagram: <a href="https://www.instagram.com/francesco.serangeli">francesco.serangeli</a></li>
+                <li>Website: <a href="https://serangelicloud.github.io">serangelicloud.github.io</a></li>
+            </ul>
+        </section>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        a
+    </div>
+    <button onclick="return topFunction()" id="backToTop" title="Go to top">Top</button>
+</body>
+</html>
+
