@@ -11,12 +11,19 @@
             margin: auto;
         }
         header {
-            text-align: center;
-            padding: 20px;
-        }
+    text-align: center;
+    padding: 40px;
+    background-color: #1a0dab; /* Darker background color */
+    color: white; /* Text color */
+}
+
         section {
             margin: 20px 0;
         }
+        p {
+    font-size: 18px;
+    line-height: 1.6;
+}
         h2 {
             color: #333;
         }
@@ -27,51 +34,167 @@
         a:hover {
             text-decoration: underline;
         }
-        h1, h2 {
-    transition: color 0.5s, transform 0.3s;
-    }
+        h2 {
+            transition: color 0.5s, transform 0.3s;
+        }
+        h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+body.dark-mode h1,
+body.dark-mode h2 {
+    color: #fff;
+}
 
-    h1:hover, h2:hover {
-        color: #1500ff;
-    }
+        .content {
+    transition: all 0.3s;
+    margin: 20px 0;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
 
-    .content {
-        transition: all 0.3s;
-    }
+.content:hover {
+    transform: scale(1.02);
+    background-color: rgba(163, 163, 163, 0.4);
+}
 
-    .content:hover {
-        transform: scale(1.01);
-        background-color: rgba(163, 163, 163, 0.356);
-    }
+        /* Light theme styles */
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+        }
 
-    #backToTop {
-            display: none; /* Hidden by default */
-            position: fixed; /* Fixed/sticky position */
-            bottom: 20px; /* Place the button at the bottom of the page */
-            right: 30px; /* Place the button 30px from the right */
-            z-index: 99; /* Make sure it does not overlap */
-            border: none; /* Remove borders */
-            outline: none; /* Remove outline */
-            background-color: #1a0dab; /* Set a background color */
-            color: white; /* Text color */
-            cursor: pointer; /* Add a mouse pointer on hover */
-            padding: 15px; /* Some padding */
-            border-radius: 10px; /* Rounded corners */
-            font-size: 18px; /* Increase font size */
+        /* Dark theme styles */
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        #themeToggle {
+    background-color: #1a0dab;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 99;
+    transition: background-color 0.5s, transform 0.3s;
+}
+
+#themeToggle:hover {
+    background-color: #555;
+    transform: scale(1.1);
+}
+
+
+        @keyframes popUp {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #themeIcon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    animation: rotate 1.5s;
+}
+
+#themeIcon:hover {
+    background-color: #555;
+    animation: rotate 1.5s;
+}
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        #backToTop {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Fixed/sticky position */
+            bottom: 20px;
+            /* Place the button at the bottom of the page */
+            right: 30px;
+            /* Place the button 30px from the right */
+            z-index: 99;
+            /* Make sure it does not overlap */
+            border: none;
+            /* Remove borders */
+            outline: none;
+            /* Remove outline */
+            background-color: #1a0dab;
+            /* Set a background color */
+            color: white;
+            /* Text color */
+            cursor: pointer;
+            /* Add a mouse pointer on hover */
+            padding: 15px;
+            /* Some padding */
+            border-radius: 10px;
+            /* Rounded corners */
+            font-size: 18px;
+            /* Increase font size */
+            padding: 20px;
+            font-size: 20px; /* Larger font size */
         }
 
         #backToTop:hover {
-            background-color: #555; /* Add a dark-grey background on hover */
-        }
+    background-color: #555;
+    transform: scale(1.05);
+}
     </style>
-      <script>
-        document.addEventListener("DOMContentLoaded", function() {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var themeButton = document.getElementById("themeToggle");
+            var themeIcon = document.getElementById("themeIcon");
+
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark-mode");
+                themeIcon.src = "https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/moon_dark_mode_night-2-512.png";
+            } else {
+                themeIcon.src = "https://cdn1.iconfinder.com/data/icons/mix-ui/24/Sun_Brightness_Day_Light_Weather_Mode-512.png";
+            }
+
+            themeButton.addEventListener("click", function () {
+                document.body.classList.toggle("dark-mode");
+                var theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+                localStorage.setItem("theme", theme);
+
+                themeIcon.src = theme === "dark" ? "https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/moon_dark_mode_night-2-512.png" : "https://cdn1.iconfinder.com/data/icons/mix-ui/24/Sun_Brightness_Day_Light_Weather_Mode-512.png";
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
             // Get all links
             var links = document.querySelectorAll("a[href^='#']");
-            
+
             // Add smooth scrolling to all links
-            for (var i = 0; i < links.length; i++){
-                links[i].addEventListener("click", function(event) {
+            for (var i = 0; i < links.length; i++) {
+                links[i].addEventListener("click", function (event) {
                     // Prevent default action
                     event.preventDefault();
 
@@ -79,13 +202,14 @@
                     var target = document.querySelector(this.getAttribute("href"));
 
                     // Smooth scroll to target
-                    target.scrollIntoView({behavior: "smooth"});
+                    target.scrollIntoView({ behavior: "smooth" });
                 });
             }
         });
-        // Add your new JavaScript here
 
-        window.onscroll = function() {scrollFunction()};
+        window.onscroll = function () {
+            scrollFunction()
+        };
 
         function scrollFunction() {
             var backToTopButton = document.getElementById("backToTop");
@@ -99,7 +223,7 @@
         function topFunction() {
             document.body.scrollTop = 0; // For Safari
             // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-            window.scrollTo({top: 0, behavior: 'smooth'}); // For all browsers
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // For all browsers
         }
     </script>
 </head>
@@ -109,11 +233,13 @@
             <h1>Francesco Serangeli</h1>
             <p>A passionate programmer and car enthusiast with great communication skills.</p>
         </header>
+        <button id="themeToggle">
+            <img id="themeIcon" src="" alt="Theme Icon">
+        </button>
         <section class="content">
-            <h2>About Me</h2>
-            <p>My name is Francesco Serangeli. I'm a 17-year-old programmer who is passionate about cars. I'm currently studying psychology and have developed strong communication skills. I'm proficient in Python, HTML, CSS, JavaScript, and have some experience with Java and C++.</p>
-        </section>
-        <section class="content">
+            
+            
+
             <h2>Projects</h2>
             <p>I'm currently working on a safe and anonymous chat application. More details will be available soon.</p>
         </section>
