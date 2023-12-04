@@ -1,171 +1,174 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Francesco Serangeli's Portfolio</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Francesco Serangeli's Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.5s, color 0.5s;
         }
+
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px;
+            background-color: #1a0dab;
+            color: white;
+        }
+
         .container {
             width: 80%;
             margin: auto;
         }
-        header {
-    text-align: center;
-    padding: 40px;
-    background-color: #1a0dab; /* Darker background color */
-    color: white; /* Text color */
-}
 
         section {
-            margin: 20px 0;
+            margin: 40px 0;
         }
-        p {
-    font-size: 18px;
-    line-height: 1.6;
-}
+
+        h1, h2, p {
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
         h2 {
-            color: #333;
+            color: #1a0dab;
         }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+
         a {
             color: #1a0dab;
             text-decoration: none;
+            transition: color 0.3s;
         }
+
         a:hover {
-            text-decoration: underline;
+            color: #555;
         }
-        h2 {
-            transition: color 0.5s, transform 0.3s;
-        }
-        h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-body.dark-mode h1,
-body.dark-mode h2 {
-    color: #fff;
-}
 
         .content {
-    transition: all 0.3s;
-    margin: 20px 0;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-.content:hover {
-    transform: scale(1.02);
-    background-color: rgba(163, 163, 163, 0.4);
-}
-
-        /* Light theme styles */
-        body {
-            font-family: Arial, sans-serif;
-            transition: background-color 0.5s, color 0.5s;
+            transition: all 0.3s;
+            margin: 20px 0;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
-        /* Dark theme styles */
-        body.dark-mode {
-            background-color: #333;
-            color: #fff;
+        .content:hover {
+            transform: scale(1.02);
+            background-color: rgba(26, 13, 171, 0.1);
         }
 
         #themeToggle {
-    background-color: #1a0dab;
-    color: white;
-    cursor: pointer;
-    padding: 12px;
-    border-radius: 50%;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 99;
-    transition: background-color 0.5s, transform 0.3s;
-}
+            background-color: #1a0dab;
+            color: white;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 50%;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 99;
+            transition: background-color 0.5s, transform 0.3s;
+        }
 
-#themeToggle:hover {
-    background-color: #555;
-    transform: scale(1.1);
-}
-
-
-        @keyframes popUp {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
+        #themeToggle:hover {
+            background-color: #555;
+            transform: scale(1.1);
         }
 
         #themeIcon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: block;
-    margin: auto;
-    cursor: pointer;
-    transition: background-color 0.5s;
-    animation: rotate 1.5s;
-}
-
-#themeIcon:hover {
-    background-color: #555;
-    animation: rotate 1.5s;
-}
-
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            50% {
-                transform: rotate(180deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: block;
+            margin: auto;
+            cursor: pointer;
+            transition: background-color 0.5s, transform 0.3s;
+            animation: rotate 1.5s;
         }
 
+        #themeIcon:hover {
+            background-color: #555;
+            animation: rotate 1.5s;
+        }
 
         #backToTop {
             display: none;
-            /* Hidden by default */
             position: fixed;
-            /* Fixed/sticky position */
             bottom: 20px;
-            /* Place the button at the bottom of the page */
             right: 30px;
-            /* Place the button 30px from the right */
             z-index: 99;
-            /* Make sure it does not overlap */
             border: none;
-            /* Remove borders */
             outline: none;
-            /* Remove outline */
             background-color: #1a0dab;
-            /* Set a background color */
             color: white;
-            /* Text color */
             cursor: pointer;
-            /* Add a mouse pointer on hover */
             padding: 15px;
-            /* Some padding */
             border-radius: 10px;
-            /* Rounded corners */
             font-size: 18px;
-            /* Increase font size */
-            padding: 20px;
-            font-size: 20px; /* Larger font size */
         }
 
         #backToTop:hover {
-    background-color: #555;
-    transform: scale(1.05);
-}
+            background-color: #555;
+            transform: scale(1.05);
+        }
+                /* New styles for custom layouts */
+                .custom-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .custom-block {
+            flex: 1;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .custom-block:hover {
+            transform: scale(1.05);
+            background-color: rgba(26, 13, 171, 0.1);
+        }
+
+        .custom-block img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        #textforencoder {
+            word-wrap: break-word;
+        }
+        #HiddenButtonContainer {
+            display: none;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+        }
+
+        /* Show the button container when hovering over the #showbuttons section */
+        #showbuttons:hover #HiddenButtonContainer {
+            display: block;
+            opacity: 1;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -225,10 +228,22 @@ body.dark-mode h2 {
             // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
             window.scrollTo({ top: 0, behavior: 'smooth' }); // For all browsers
         }
+
+        function encodeText() {
+            const originalText = document.getElementById("textforencoder").innerHTML;
+            const encodedText = "XVte0kz0O1j9XLWSBj6p3Zm3POAibF8UUXuyZP8/c2RQASqb1gl1G83l88xyMjmTAms5yZnseJhlgpTJo0jfSJsMbK4dc5wvjed25pfogl39QKleQCZ/xPgTayKmsm0GAgC9GMpoJ62M+nstY4GzSxMDJsota8Xk8hyC7y0hni/ZCGAaxWgxUNG2DngwLmqKRoGUfOz5/qw4CCRaP5glcT8IOxdeJ0EKDVEUt/b9JXCCNUtiNF7iSf7BvLED10hw3YipfwAAze2QgT1e0kZRD8UgKDeYVOIBi1XekwHw5tnKqK/r9Ivpzlklu5G26hT7gIZb9uzYXPEJ6JGkaQtzkvOztc2B6i4/IboMbE16kB4="
+            document.getElementById("textforencoder").innerHTML = encodedText;
+        }
+
+        function decodeText() {
+            const encodedText = document.getElementById("textforencoder").innerHTML;
+            const decodedText = "I'm currently working on a safe and anonymous chat application. It is going to feature end-to-end practical encryption managed from the devices themselves so that not even the server owners can understand whatever you are talking about."
+            document.getElementById("textforencoder").innerHTML = decodedText;
+        }
     </script>
 </head>
 <body>
-    <div class="container ">
+    <div class="container">
         <header>
             <h1>Francesco Serangeli</h1>
             <p>A passionate programmer and car enthusiast with great communication skills.</p>
@@ -236,12 +251,13 @@ body.dark-mode h2 {
         <button id="themeToggle">
             <img id="themeIcon" src="" alt="Theme Icon">
         </button>
-        <section class="content">
-            
-            
-
+        <section class="content" id="showbuttons">
             <h2>Projects</h2>
-            <p>I'm currently working on a safe and anonymous chat application. More details will be available soon.</p>
+                <p id="textforencoder">I'm currently working on a safe and anonymous chat application. It is going to feature end-to-end practical encryption managed from the devices themselves so that not even the server owners can understand whatever you are talking about.</p>
+            <div id="HiddenButtonContainer">
+                <button onclick="encodeText()">Encode Text</button>
+                <button onclick="decodeText()">Decode Text</button>
+            </div>
         </section>
         <section class="content">
             <h2>Contact Me</h2>
@@ -253,10 +269,21 @@ body.dark-mode h2 {
                 <li>Website: <a href="https://serangelicloud.github.io">serangelicloud.github.io</a></li>
             </ul>
         </section>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        a
-    </div>
-    <button onclick="return topFunction()" id="backToTop" title="Go to top">Top</button>
-</body>
-</html>
+                <section class="custom-section">
+                    <div class="custom-block">
+                        <h2>Project Showcase</h2>
+                        <p>Explore some of my featured projects.</p>
+                        <img src="project1.jpg" alt="Project 1">
+                    </div>
+                    <div class="custom-block">
+                        <h2>Code Collaboration</h2>
+                        <p>Collaborating with fellow developers on innovative solutions.</p>
+                        <img src="collaboration.jpg" alt="Code Collaboration">
+                    </div>
+                </section>
+                <!-- Additional content -->
+            </div>
 
+            <button onclick="return topFunction()" id="backToTop" title="Go to top">Top</button>
+        </body>
+        </html>
