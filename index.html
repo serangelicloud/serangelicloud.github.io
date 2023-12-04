@@ -1,289 +1,234 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Francesco Serangeli's Portfolio</title>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Francesco Serangeli</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            transition: background-color 0.5s, color 0.5s;
-        }
-
-        body.dark-mode {
-            background-color: #1a1a1a;
-            color: #fff;
-        }
-
-        header {
-            text-align: center;
-            padding: 40px;
-            background-color: #1a0dab;
-            color: white;
+            background-color: #f4f4f4;
+            color: #333;
         }
 
         .container {
-            width: 80%;
-            margin: auto;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
         }
 
         section {
-            margin: 40px 0;
+            margin-bottom: 30px;
         }
 
-        h1, h2, p {
-            margin: 0;
-        }
-
-        h1 {
-            font-size: 2.5em;
-        }
-
-        h2 {
-            color: #1a0dab;
+        h1, h2 {
+            color: #333;
         }
 
         p {
-            font-size: 18px;
             line-height: 1.6;
-            color: #555;
-        }
-
-        a {
-            color: #1a0dab;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: #555;
         }
 
         .content {
-            transition: all 0.3s;
-            margin: 20px 0;
+            background-color: #fff;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
-        .content:hover {
-            transform: scale(1.02);
-            background-color: rgba(26, 13, 171, 0.1);
+        ul {
+            list-style: none;
+            padding: 0;
         }
 
-        #themeToggle {
-            background-color: #1a0dab;
-            color: white;
-            cursor: pointer;
-            padding: 12px;
-            border-radius: 50%;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 99;
-            transition: background-color 0.5s, transform 0.3s;
+        li {
+            margin-bottom: 10px;
         }
 
-        #themeToggle:hover {
-            background-color: #555;
-            transform: scale(1.1);
+        a {
+            color: #007aff;
+            text-decoration: none;
         }
 
-        #themeIcon {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: block;
-            margin: auto;
-            cursor: pointer;
-            transition: background-color 0.5s, transform 0.3s;
-            animation: rotate 1.5s;
+        a:hover {
+            text-decoration: underline;
         }
 
-        #themeIcon:hover {
-            background-color: #555;
-            animation: rotate 1.5s;
-        }
-
-        #backToTop {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            z-index: 99;
-            border: none;
-            outline: none;
-            background-color: #1a0dab;
-            color: white;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 18px;
-        }
-
-        #backToTop:hover {
-            background-color: #555;
-            transform: scale(1.05);
-        }
-                /* New styles for custom layouts */
-                .custom-section {
+        .custom-section {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            flex-wrap: wrap;
         }
 
         .custom-block {
-            flex: 1;
-            margin: 20px;
+            flex: 0 0 48%;
+            margin-bottom: 20px;
+            background-color: #fff;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
-        .custom-block:hover {
-            transform: scale(1.05);
-            background-color: rgba(26, 13, 171, 0.1);
-        }
-
-        .custom-block img {
+        img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-        }
-        #textforencoder {
-            word-wrap: break-word;
-        }
-        #HiddenButtonContainer {
-            display: none;
-            transition: opacity 0.3s ease-in-out;
-            opacity: 0;
+            border-radius: 5px;
         }
 
-        /* Show the button container when hovering over the #showbuttons section */
-        #showbuttons:hover #HiddenButtonContainer {
-            display: block;
-            opacity: 1;
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007aff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
-    </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var themeButton = document.getElementById("themeToggle");
-            var themeIcon = document.getElementById("themeIcon");
 
-            if (localStorage.getItem("theme") === "dark") {
-                document.body.classList.add("dark-mode");
-                themeIcon.src = "https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/moon_dark_mode_night-2-512.png";
-            } else {
-                themeIcon.src = "https://cdn1.iconfinder.com/data/icons/mix-ui/24/Sun_Brightness_Day_Light_Weather_Mode-512.png";
-            }
+        #backToTop:hover {
+            background-color: #0056b3;
+        }
+        #textforencoder{
+            word-break: break-all;
+        }
+        .iframe-container {
+            flex: 0 0 48%;
+            margin-bottom: 20px;
+            height: auto;
+        }
 
-            themeButton.addEventListener("click", function () {
-                document.body.classList.toggle("dark-mode");
-                var theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
-                localStorage.setItem("theme", theme);
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+        #title{
+            color: #fff;
+        }    </style>
 
-                themeIcon.src = theme === "dark" ? "https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/moon_dark_mode_night-2-512.png" : "https://cdn1.iconfinder.com/data/icons/mix-ui/24/Sun_Brightness_Day_Light_Weather_Mode-512.png";
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var themeButton = document.getElementById("themeToggle");
+        var themeIcon = document.getElementById("themeIcon");
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+            themeIcon.src = "https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/moon_dark_mode_night-2-512.png";
+        } else {
+            themeIcon.src = "https://cdn1.iconfinder.com/data/icons/mix-ui/24/Sun_Brightness_Day_Light_Weather_Mode-512.png";
+        }
+
+        themeButton.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+            var theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+            localStorage.setItem("theme", theme);
+
+            themeIcon.src = theme === "dark" ? "https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/moon_dark_mode_night-2-512.png" : "https://cdn1.iconfinder.com/data/icons/mix-ui/24/Sun_Brightness_Day_Light_Weather_Mode-512.png";
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get all links
+        var links = document.querySelectorAll("a[href^='#']");
+
+        // Add smooth scrolling to all links
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener("click", function (event) {
+                // Prevent default action
+                event.preventDefault();
+
+                // Get the target element
+                var target = document.querySelector(this.getAttribute("href"));
+
+                // Smooth scroll to target
+                target.scrollIntoView({ behavior: "smooth" });
             });
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            // Get all links
-            var links = document.querySelectorAll("a[href^='#']");
-
-            // Add smooth scrolling to all links
-            for (var i = 0; i < links.length; i++) {
-                links[i].addEventListener("click", function (event) {
-                    // Prevent default action
-                    event.preventDefault();
-
-                    // Get the target element
-                    var target = document.querySelector(this.getAttribute("href"));
-
-                    // Smooth scroll to target
-                    target.scrollIntoView({ behavior: "smooth" });
-                });
-            }
-        });
-
-        window.onscroll = function () {
-            scrollFunction()
-        };
-
-        function scrollFunction() {
-            var backToTopButton = document.getElementById("backToTop");
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                backToTopButton.style.display = "block";
-            } else {
-                backToTopButton.style.display = "none";
-            }
         }
+    });
 
-        function topFunction() {
-            document.body.scrollTop = 0; // For Safari
-            // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-            window.scrollTo({ top: 0, behavior: 'smooth' }); // For all browsers
-        }
+    window.onscroll = function () {
+        scrollFunction()
+    };
 
-        function encodeText() {
-            const originalText = document.getElementById("textforencoder").innerHTML;
-            const encodedText = "XVte0kz0O1j9XLWSBj6p3Zm3POAibF8UUXuyZP8/c2RQASqb1gl1G83l88xyMjmTAms5yZnseJhlgpTJo0jfSJsMbK4dc5wvjed25pfogl39QKleQCZ/xPgTayKmsm0GAgC9GMpoJ62M+nstY4GzSxMDJsota8Xk8hyC7y0hni/ZCGAaxWgxUNG2DngwLmqKRoGUfOz5/qw4CCRaP5glcT8IOxdeJ0EKDVEUt/b9JXCCNUtiNF7iSf7BvLED10hw3YipfwAAze2QgT1e0kZRD8UgKDeYVOIBi1XekwHw5tnKqK/r9Ivpzlklu5G26hT7gIZb9uzYXPEJ6JGkaQtzkvOztc2B6i4/IboMbE16kB4="
-            document.getElementById("textforencoder").innerHTML = encodedText;
+    function scrollFunction() {
+        var backToTopButton = document.getElementById("backToTop");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
         }
+    }
 
-        function decodeText() {
-            const encodedText = document.getElementById("textforencoder").innerHTML;
-            const decodedText = "I'm currently working on a safe and anonymous chat application. It is going to feature end-to-end practical encryption managed from the devices themselves so that not even the server owners can understand whatever you are talking about."
-            document.getElementById("textforencoder").innerHTML = decodedText;
-        }
-    </script>
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // For all browsers
+    }
+
+    function encodeText() {
+        const originalText = document.getElementById("textforencoder").innerHTML;
+        const encodedText = "XVte0kz0O1j9XLWSBj6p3Zm3POAibF8UUXuyZP8/c2RQASqb1gl1G83l88xyMjmTAms5yZnseJhlgpTJo0jfSJsMbK4dc5wvjed25pfogl39QKleQCZ/xPgTayKmsm0GAgC9GMpoJ62M+nstY4GzSxMDJsota8Xk8hyC7y0hni/ZCGAaxWgxUNG2DngwLmqKRoGUfOz5/qw4CCRaP5glcT8IOxdeJ0EKDVEUt/b9JXCCNUtiNF7iSf7BvLED10hw3YipfwAAze2QgT1e0kZRD8UgKDeYVOIBi1XekwHw5tnKqK/r9Ivpzlklu5G26hT7gIZb9uzYXPEJ6JGkaQtzkvOztc2B6i4/IboMbE16kB4="
+        document.getElementById("textforencoder").innerHTML = encodedText;
+    }
+
+    function decodeText() {
+        const encodedText = document.getElementById("textforencoder").innerHTML;
+        const decodedText = "I'm currently working on a safe and anonymous chat application. It is going to feature end-to-end practical encryption managed from the devices themselves so that not even the server owners can understand whatever you are talking about."
+        document.getElementById("textforencoder").innerHTML = decodedText;
+    }
+</script>
 </head>
-<body>
+
+<body class="color-bg-primary">
     <div class="container">
-        <header>
-            <h1>Francesco Serangeli</h1>
-            <p>A passionate programmer and car enthusiast with great communication skills.</p>
+        <header class="text-center">
+            <h1 id="title">Francesco Serangeli</h1>
+            <p class="color-text-white">A passionate programmer and car enthusiast with great communication skills.</p>
         </header>
-        <button id="themeToggle">
-            <img id="themeIcon" src="" alt="Theme Icon">
-        </button>
         <section class="content" id="showbuttons">
             <h2>Projects</h2>
-                <p id="textforencoder">I'm currently working on a safe and anonymous chat application. It is going to feature end-to-end practical encryption managed from the devices themselves so that not even the server owners can understand whatever you are talking about.</p>
+            <p id="textforencoder">I'm currently working on a safe and anonymous chat application. It is going to feature end-to-end practical encryption managed from the devices themselves so that not even the server owners can understand whatever you are talking about.</p>
             <div id="HiddenButtonContainer">
-                <button onclick="encodeText()">Encode Text</button>
-                <button onclick="decodeText()">Decode Text</button>
+                <button class="btn btn-sm btn-primary" onclick="encodeText()">Encode Text</button>
+                <button class="btn btn-sm btn-primary" onclick="decodeText()">Decode Text</button>
             </div>
         </section>
         <section class="content">
             <h2>Contact Me</h2>
             <p>You can reach me through the following channels:</p>
             <ul>
-                <li>Email: <a href="mailto:visposer@gmail.com">visposer@gmail.com</a></li>
-                <li>GitHub: <a href="https://github.com/serangelicloud">serangelicloud</a></li>
-                <li>Instagram: <a href="https://www.instagram.com/francesco.serangeli">francesco.serangeli</a></li>
-                <li>Website: <a href="https://serangelicloud.github.io">serangelicloud.github.io</a></li>
+                <li>Email: <a href="mailto:visposer@gmail.com" class="color-text-primary">visposer@gmail.com</a></li>
+                <li>GitHub: <a href="https://github.com/serangelicloud" class="color-text-primary">serangelicloud</a></li>
+                <li>Instagram: <a href="https://www.instagram.com/francesco.serangeli" class="color-text-primary">francesco.serangeli</a></li>
+                <li>Website: <a href="https://serangelicloud.github.io" class="color-text-primary">serangelicloud.github.io</a></li>
             </ul>
         </section>
-                <section class="custom-section">
-                    <div class="custom-block">
-                        <h2>Project Showcase</h2>
-                        <p>Explore some of my featured projects.</p>
-                        <img src="project1.jpg" alt="Project 1">
-                    </div>
-                    <div class="custom-block">
-                        <h2>Code Collaboration</h2>
-                        <p>Collaborating with fellow developers on innovative solutions.</p>
-                        <img src="collaboration.jpg" alt="Code Collaboration">
-                    </div>
-                </section>
-                <!-- Additional content -->
+        <section class="custom-section">
+            <div class="custom-block">
+                <h2>Passions</h2>
+                <p>As you might understand i have a big <b>passion</b> for cars and anything that has an <b>engine</b></p>
+                <a href="https://www.instagram.com/francesco.serangeli/"><img src="redbull.png"  ></a>
             </div>
+                        <!-- Add iframe container on the right -->
+                        <div class="iframe-container">
+<iframe src="profile.html"></iframe>
+                        </div>
+        </section>
+        <button onclick="return topFunction()" id="backToTop" title="Go to top" class="btn btn-sm btn-primary">Top</button>
+    </div>
+</body>
 
-            <button onclick="return topFunction()" id="backToTop" title="Go to top">Top</button>
-        </body>
-        </html>
+</html>
