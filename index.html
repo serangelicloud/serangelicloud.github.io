@@ -6,118 +6,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Francesco Serangeli</title>
     <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
 
-        section {
-            margin-bottom: 30px;
-        }
+section {
+    margin-bottom: 30px;
+}
 
-        h1, h2 {
-            color: #333;
-        }
+h1, h2 {
+    color: #333;
+}
 
-        p {
-            line-height: 1.6;
-        }
+p {
+    line-height: 1.6;
+}
 
-        .content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
+ul {
+    list-style: none;
+    padding: 0;
+}
 
-        li {
-            margin-bottom: 10px;
-        }
+li {
+    margin-bottom: 10px;
+}
 
-        a {
-            color: #007aff;
-            text-decoration: none;
-        }
+a {
+    color: #007aff;
+    text-decoration: none;
+}
 
-        a:hover {
-            text-decoration: underline;
-        }
+a:hover {
+    text-decoration: underline;
+}
 
-        .custom-section {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+.custom-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-        .custom-block {
-            flex: 0 0 48%;
-            margin-bottom: 20px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
+.custom-block {
+    flex: 0 0 calc(50% - 4%);
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
 
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
 
-        #backToTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #007aff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007aff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        #backToTop:hover {
-            background-color: #0056b3;
-        }
-        #textforencoder{
-            word-break: break-all;
-        }
-        .iframe-container {
-            flex: 0 0 48%;
-            margin-bottom: 20px;
-            height: auto;
-        }
+#backToTop:hover {
+    background-color: #0056b3;
+}
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 10px;
-        }
-        #title{
-            color: #fff;
-        }    </style>
+#textforencoder {
+    word-break: break-all;
+}
+
+.iframe-container {
+    flex: 0 0 calc(50% - 4%);
+    margin-bottom: 20px;
+    height: auto;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+#title {
+    color: #fff;
+}
+
+/* Change the color of selected text */
+::selection {
+    background-color: rgba(60, 255, 0, 0.644);
+    /* Change this color to your desired color */
+    color: #000000;
+    /* Change this color to your desired text color */
+}
+
+@media only screen and (max-width: 768px) {
+    .custom-section {
+        flex-direction: column;
+    }
+
+    .custom-block,
+    .iframe-container {
+        flex: 0 0 100%;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100vh;
+    }
+}
+
+</style>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -223,8 +252,8 @@
                 <a href="https://www.instagram.com/francesco.serangeli/"><img src="redbull.png"  ></a>
             </div>
                         <!-- Add iframe container on the right -->
-                        <div class="iframe-container">
-<iframe src="profile.html"></iframe>
+                        <div class="iframe-container custom-block">
+<a href="https://serangelicloud.github.io"><iframe src="profile.html"></iframe></a>
                         </div>
         </section>
         <button onclick="return topFunction()" id="backToTop" title="Go to top" class="btn btn-sm btn-primary">Top</button>
