@@ -44,6 +44,8 @@ p {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
 }
 
 ul {
@@ -77,6 +79,8 @@ a:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Align text to the left */
+
 }
 
 img {
@@ -129,7 +133,10 @@ iframe {
     color: #000000;
     /* Change this color to your desired text color */
 }
-
+a::selection{
+    background-color:rgba(60, 255, 0, 0.644);
+    color:rgb(255, 0, 0);
+}
 @media only screen and (max-width: 768px) {
     .custom-section {
         flex-direction: column;
@@ -138,12 +145,18 @@ iframe {
     .custom-block,
     .iframe-container {
         flex: 0 0 100%;
+        align-items: center;
+        justify-content: center;
     }
 
     iframe {
         width: 100%;
         height: 100vh;
     }
+.font {
+    color:#ff0000;
+
+}
 }
 
 </style>
@@ -235,16 +248,7 @@ iframe {
                 <button class="btn btn-sm btn-primary" onclick="decodeText()">Decode Text</button>
             </div>
         </section>
-        <section class="content">
-            <h2>Contact Me</h2>
-            <p>You can reach me through the following channels:</p>
-            <ul>
-                <li>Email: <a href="mailto:visposer@gmail.com" class="color-text-primary">visposer@gmail.com</a></li>
-                <li>GitHub: <a href="https://github.com/serangelicloud" class="color-text-primary">serangelicloud</a></li>
-                <li>Instagram: <a href="https://www.instagram.com/francesco.serangeli" class="color-text-primary">francesco.serangeli</a></li>
-                <li>Website: <a href="https://serangelicloud.github.io" class="color-text-primary">serangelicloud.github.io</a></li>
-            </ul>
-        </section>
+
         <section class="custom-section">
             <div class="custom-block">
                 <h2>Passions</h2>
@@ -255,6 +259,53 @@ iframe {
                         <div class="iframe-container custom-block">
 <a href="https://serangelicloud.github.io"><iframe src="profile.html"></iframe></a>
                         </div>
+        </section>
+        <section class="content">
+            <h2>placeholder</h2>
+                <p>
+                    <strong>The English course</strong>, an unexpected gift from my father who initially had no interest in pursuing it, turned out to be a transformative experience that significantly changed my life for the better.
+                  </p>
+                
+                  <p>
+                    Although my father might not have harbored a personal inclination towards the course, his decision to pass it on to me inadvertently became a catalyst for personal growth and development.
+                    <strong>Engaging with the English language</strong> not only sharpened my communication skills but also broadened my horizons, fostering a newfound appreciation for literature, culture, and diverse perspectives.
+                  </p>
+                
+                  <p>
+                    This unexpected journey instilled in me the ability to articulate thoughts with clarity and precision, proving to be an invaluable asset in both academic and professional spheres.
+                    <strong>Beyond its practical applications</strong>, the English course became a source of self-discovery, unlocking doors to a world of knowledge and opportunities.
+                  </p>
+        </section>
+        <section class="custom-section">
+            <div class="custom-block">
+                <p>Another big passion of mine is <b>coding</b> and i hope i can make it my <b>job</b> in the future.
+                as of now (<i><b>12/5/2023</b></i>) i'm still in <a href="https://liceomontale.edu.it/">high school</a> and i plan of studying computing in university.</p>
+                <p>Programming has been my passion since i was <b>12</b> and i wrote my first bash code. I always found it interesting, the <b>ability</b> to tell the machine what to do and the need to be as <b>precise</b> as possible in order to make it work,
+                    plus even if it's actually a very frustrating thing to do, because in 99% of times stuff either <font class ="font"title="fact">doesn't work and you don't know why or it works but you still don't know why</font>.
+                </p>
+                <h3>what can i do?</h3>
+                <p>
+                    This is always a difficult question for any developer on the planet, because most of us have the <a href="https://www.psychologytoday.com/us/blog/neuroscience-in-everyday-life/202308/the-history-of-imposter-syndrome#:~:text=Imposter%20syndrome%20is%20not%20a%20psychiatric%20condition%2C%20but,job%20performance%20and%20an%20increased%20risk%20of%20burnout." title="see description"> impostor complex,</a>
+                    which means we all feel like we don't actually know anything but instead we feel like just lieing about our abilities. Apart from that, there are some things that i must recognise i <b>can</b> do, like <b>pyhton</b> programming, especially logic and computation, i got the hand of that, i've been working on that for quite a while and right now im able to understand what i think it's good part of any python code.</p>
+                    <p>I'm also quite proficent in <b>javascript</b> and <b>c++</b> even tho there is still a long way to go and im definitely not ready for using it in a real world environment </p>
+                    <!-- <img src="https://avatars.githubusercontent.com/u/138161359?v=4://github.com/account" 
+                    width="20%" 
+                    style="border-radius: 100%; margin-left: 80%">
+                -->
+               
+            </div>
+            <div class="custom-block">
+                <a href="https://serangelicloud.github.io"><img src="coding.png"></a></div>
+        </section>
+        <section class="content">
+            <h2>Contact Me</h2>
+            <p>You can reach me through the following channels:</p>
+            <ul>
+                <li>Email: <a href="mailto:visposer@gmail.com" class="color-text-primary">visposer@gmail.com</a></li>
+                <li>GitHub: <a href="https://github.com/serangelicloud" class="color-text-primary">serangelicloud</a></li>
+                <li>Instagram: <a href="https://www.instagram.com/francesco.serangeli" class="color-text-primary">francesco.serangeli</a></li>
+                <li>Website: <a href="https://serangelicloud.github.io" class="color-text-primary">serangelicloud.github.io</a></li>
+            </ul>
         </section>
         <button onclick="return topFunction()" id="backToTop" title="Go to top" class="btn btn-sm btn-primary">Top</button>
     </div>
