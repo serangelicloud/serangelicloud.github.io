@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- this is Francesco Serangeli's website, every script contained in it is free to use from the public and anyone is allowed to share it and use it. I (Francesco Serangeli) as an individual don't have any responsability over the use of any of this code -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -121,7 +121,7 @@ img {
 
 iframe {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     border: none;
     border-radius: 10px;
 }
@@ -129,6 +129,15 @@ iframe {
 #title {
     color: #fff;
 }
+    /* Add some basic styling */
+    #custom-menu {
+      display: none;
+      position: fixed;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 8px;
+      z-index: 1000;
+    }
 
 /* Change the color of selected text */
 ::selection {
@@ -236,9 +245,61 @@ a::selection{
         document.getElementById("textforencoder").innerHTML = decodedText;
     }
 </script>
+<script>
+    // Function to show the custom menu
+    function showMenu(x, y) {
+      const menu = document.getElementById('custom-menu');
+      menu.style.display = 'block';
+      menu.style.left = x + 'px';
+      menu.style.top = y + 'px';
+    }
+
+    // Function to hide the custom menu
+    function hideMenu() {
+      const menu = document.getElementById('custom-menu');
+      menu.style.display = 'none';
+    }
+
+    // Function to handle text selection
+    function handleSelection(event) {
+      const selectedText = window.getSelection().toString().trim();
+      const menu = document.getElementById('custom-menu');
+
+      // Check if text is selected
+      if (selectedText !== '') {
+        // Customize the menu options based on the selected text
+        document.getElementById('copy').addEventListener('click', function() {
+          document.execCommand('copy');
+          hideMenu();
+        });
+
+        document.getElementById('translate').addEventListener('click', function() {
+          // Implement translation logic here
+          alert(`You selected "${selectedText}" and chose Translate.`);
+          hideMenu();
+        });
+
+        // Show the menu at the selection coordinates
+        showMenu(event.pageX, event.pageY);
+        event.preventDefault(); // Prevent the default context menu from appearing
+      } else {
+        // Hide the menu if no text is selected
+        hideMenu();
+      }
+    }
+
+    // Attach the selection event listener to the document
+    document.addEventListener('mouseup', handleSelection);
+  </script>
+
 </head>
 
 <body class="color-bg-primary">
+    <div id="custom-menu">
+        <button id="copy">Copy</button>
+        <button id="translate">Translate</button>
+        <!-- Add more options as needed -->
+      </div>
     <div class="container">
         <header class="text-center">
             <h1 id="title">Francesco Serangeli</h1>
@@ -265,7 +326,7 @@ a::selection{
                         </div>
         </section>
         <section class="content">
-            <h2>placeholder</h2>
+            <h2>English knowledge</h2>
                 <p>
                     <strong>The English course</strong>, an unexpected gift from my father who initially had no interest in pursuing it, turned out to be a transformative experience that significantly changed my life for the better.
                   </p>
@@ -282,6 +343,7 @@ a::selection{
         </section>
         <section class="custom-section">
             <div class="custom-block">
+                <h2>Coding</h2>
                 <p>Another big passion of mine is <b>coding</b> and i hope i can make it my <b>job</b> in the future.
                 as of now (<i><b>12/5/2023</b></i>) i'm still in <a href="https://liceomontale.edu.it/">high school</a> and i plan of studying computing in university.</p>
                 <p>Programming has been my passion since i was <b>12</b> and i wrote my first bash code. I always found it interesting, the <b>ability</b> to tell the machine what to do and the need to be as <b>precise</b> as possible in order to make it work,
@@ -299,8 +361,12 @@ a::selection{
                
             </div>
             <div class="custom-block">
-                <a href="https://serangelicloud.github.io"><img src="coding.png"></a></div>
+                <a href="https://github.com/serangelicloud/"><img src="coding.png"></a></div>
         </section>
+        <!-- <section class="content">
+            <h2>Personal background</h2>
+            <p>School is easy, i've said this a lot in my life and i think it's true. In a lot of places, at least in my school, competition was basically non existent.</p> <!-- todo 12/10/23 status: not done -->
+<!-- </section> -->
         <section class="content">
             <h2>Contact Me</h2>
             <p>You can reach me through the following channels:</p>
