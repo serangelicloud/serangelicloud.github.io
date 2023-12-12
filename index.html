@@ -171,7 +171,66 @@ a::selection{
 
 }
 }
+/* Add modern button styling */
+.btn {
+    background-color: #007aff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-primary {
+    background-color: #4cafaf;
+}
+
+.btn-secondary {
+    background-color: #f44336;
+}
+
+/* Add styles for small buttons */
+.btn-sm {
+    font-size: 14px;
+}
+
+#custom-menu {
+    display: none;
+    position: fixed;
+    background-color: #ffffffaf;
+    border: 1px solid #dddddde0;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    z-index: 1000;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+#custom-menu:hover{
+    background-color: #fff;
+}
+#custom-menu button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+#custom-menu button:hover {
+    background-color: #f4f4f4;
+}
+
+#custom-menu button:active {
+    background-color: #e0e0e0;
+}
 </style>
 
 <script>
@@ -272,13 +331,6 @@ a::selection{
           document.execCommand('copy');
           hideMenu();
         });
-
-        document.getElementById('translate').addEventListener('click', function() {
-          // Implement translation logic here
-          alert(`You selected "${selectedText}" and chose Translate.`);
-          hideMenu();
-        });
-
         // Show the menu at the selection coordinates
         showMenu(event.pageX, event.pageY);
         event.preventDefault(); // Prevent the default context menu from appearing
@@ -295,12 +347,11 @@ a::selection{
 </head>
 
 <body class="color-bg-primary">
-    <div id="custom-menu">
+    <!-- <div id="custom-menu">
         <button id="copy">Copy</button>
-        <button id="translate">Translate</button>
-        <!-- Add more options as needed -->
-      </div>
+      </div> -->
     <div class="container">
+
         <header class="text-center">
             <h1 id="title">Francesco Serangeli</h1>
             <p class="color-text-white">A passionate programmer and car enthusiast with great communication skills.</p>
