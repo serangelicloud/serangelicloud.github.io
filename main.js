@@ -63,17 +63,15 @@ function scrollFunction() {
 // Function to encode text and replace the content of an element
 function encodeText() {
     const originalText = document.getElementById("textforencoder").innerHTML;
-    const encodedText = "encoded-text";
+    const encodedText = "XVte0kz0O1j9XLWSBj6p3Zm3POAibF8UUXuyZP8/c2RQASqb1gl1G83l88xyMjmTAms5yZnseJhlgpTJo0jfSJsMbK4dc5wvjed25pfogl39QKleQCZ/xPgTayKmsm0GAgC9GMpoJ62M+nstY4GzSxMDJsota8Xk8hyC7y0hni/ZCGAaxWgxUNG2DngwLmqKRoGUfOz5/qw4CCRaP5glcT8IOxdeJ0EKDVEUt/b9JXCCNUtiNF7iSf7BvLED10hw3YipfwAAze2QgT1e0kZRD8UgKDeYVOIBi1XekwHw5tnKqK/r9Ivpzlklu5G26hT7gIZb9uzYXPEJ6JGkaQtzkvOztc2B6i4/IboMbE16kB4="
     document.getElementById("textforencoder").innerHTML = encodedText;
 }
 
-// Function to decode text and replace the content of an element
 function decodeText() {
     const encodedText = document.getElementById("textforencoder").innerHTML;
-    const decodedText = "decoded-text";
+    const decodedText = "I'm currently working on a safe and anonymous chat application. It is going to feature end-to-end practical encryption managed from the devices themselves so that not even the server owners can understand whatever you are talking about."
     document.getElementById("textforencoder").innerHTML = decodedText;
 }
-
 // Functions to show and hide a custom context menu, and handle text selection (I AM NOT DELETING THIS BECAUSE SOMEHOW THE PAGE DOES NOT LOAD ANYMORE)
 function showMenu(x, y) {
     const menu = document.getElementById('custom-menu');
