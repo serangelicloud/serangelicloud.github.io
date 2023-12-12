@@ -231,8 +231,57 @@ a::selection{
 #custom-menu button:active {
     background-color: #e0e0e0;
 }
-</style>
+/* Add this CSS for the fade-in animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Add this CSS for the fade-in and fade-out animations */
+.fade-effect {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-effect.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+<!-- script for fade in -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var elements = document.querySelectorAll(".fade-effect");
+
+    function checkVisibility() {
+        elements.forEach(function (element) {
+            var rect = element.getBoundingClientRect();
+            var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            // Check if the element is at least 25% visible and at most 75% visible in the viewport
+            if (rect.top <= windowHeight * 0.75 && rect.bottom >= windowHeight * 0.25) {
+                element.classList.add("active");
+            } else {
+                element.classList.remove("active");
+            }
+        });
+    }
+
+    // Initial check on page load
+    checkVisibility();
+
+    // Check when the user scrolls
+    window.addEventListener("scroll", function () {
+        checkVisibility();
+    });
+});
+</script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var themeButton = document.getElementById("themeToggle");
@@ -350,13 +399,13 @@ a::selection{
     <!-- <div id="custom-menu">
         <button id="copy">Copy</button>
       </div> -->
-    <div class="container">
+    <div class="container ">
 
         <header class="text-center">
             <h1 id="title">Francesco Serangeli</h1>
             <p class="color-text-white">A passionate programmer and car enthusiast with great communication skills.</p>
         </header>
-        <section class="content" id="showbuttons">
+        <section class="content fade-effect" id="showbuttons">
             <h2>Projects</h2>
             <p id="textforencoder">I'm currently working on a safe and anonymous chat application. It is going to feature end-to-end practical encryption managed from the devices themselves so that not even the server owners can understand whatever you are talking about.</p>
             <div id="HiddenButtonContainer">
@@ -365,7 +414,7 @@ a::selection{
             </div>
         </section>
 
-        <section class="custom-section">
+        <section class="custom-section fade-effect">
             <div class="custom-block">
                 <h2>Passions</h2>
                 <p>As you might understand i have a big <b>passion</b> for cars and anything that has an <b>engine</b></p>
@@ -376,7 +425,7 @@ a::selection{
 <a href="https://serangelicloud.github.io"><iframe src="profile.html"></iframe></a>
                         </div>
         </section>
-        <section class="content">
+        <section class="content fade-effect">
             <h2>English knowledge</h2>
                 <p>
                     <strong>The English course</strong>, an unexpected gift from my father who initially had no interest in pursuing it, turned out to be a transformative experience that significantly changed my life for the better.
@@ -392,7 +441,7 @@ a::selection{
                     <strong>Beyond its practical applications</strong>, the English course became a source of self-discovery, unlocking doors to a world of knowledge and opportunities.
                   </p>
         </section>
-        <section class="custom-section">
+        <section class="custom-section fade-effect">
             <div class="custom-block">
                 <h2>Coding</h2>
                 <p>Another big passion of mine is <b>coding</b> and i hope i can make it my <b>job</b> in the future.
@@ -418,7 +467,7 @@ a::selection{
             <h2>Personal background</h2>
             <p>School is easy, i've said this a lot in my life and i think it's true. In a lot of places, at least in my school, competition was basically non existent.</p> <!-- todo 12/10/23 status: not done -->
 <!-- </section> -->
-        <section class="content">
+        <section class="content fade-effect">
             <h2>Contact Me</h2>
             <p>You can reach me through the following channels:</p>
             <ul>
