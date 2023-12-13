@@ -1,3 +1,4 @@
+/* Reset some default styles and set basic styling for the body */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
@@ -6,12 +7,14 @@ body {
     color: #333;
 }
 
+/* Container for page content with max-width and centered */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Header styling */
 header {
     background-color: #333;
     color: #fff;
@@ -19,18 +22,22 @@ header {
     text-align: center;
 }
 
+/* Styling for different sections on the page */
 section {
     margin-bottom: 30px;
 }
 
+/* Heading styles */
 h1, h2 {
     color: #333;
 }
 
+/* Paragraph styling with specific line-height */
 p {
     line-height: 1.6;
 }
 
+/* Content block styling with background, padding, border-radius, and box-shadow */
 .content {
     background-color: #fff;
     padding: 20px;
@@ -40,30 +47,36 @@ p {
     justify-content: center;
 }
 
+/* List styling */
 ul {
     list-style: none;
     padding: 0;
 }
 
+/* List item styling */
 li {
     margin-bottom: 10px;
 }
 
+/* Anchor (link) styling */
 a {
     color: #007aff;
     text-decoration: none;
 }
 
+/* Hover effect for links */
 a:hover {
     text-decoration: underline;
 }
 
+/* Custom section with flex layout */
 .custom-section {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
+/* Styling for custom blocks within the custom section */
 .custom-block {
     flex: 0 0 calc(50% - 4%);
     margin-bottom: 20px;
@@ -71,16 +84,17 @@ a:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Align text to the left */
-
+    text-align: left;
 }
 
+/* Image styling with max-width, auto height, and border-radius */
 img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
 }
 
+/* Back to top button styling */
 #backToTop {
     position: fixed;
     bottom: 20px;
@@ -93,20 +107,24 @@ img {
     cursor: pointer;
 }
 
+/* Hover effect for back to top button */
 #backToTop:hover {
     background-color: #0056b3;
 }
 
+/* Styling for a specific element with ID 'textforencoder' */
 #textforencoder {
     word-break: break-all;
 }
 
+/* Styling for an iframe container within the custom section */
 .iframe-container {
     flex: 0 0 calc(50% - 4%);
     margin-bottom: 20px;
     height: auto;
 }
 
+/* Styling for iframes with width, height, and border-radius */
 iframe {
     width: 100%;
     height: 100vh;
@@ -114,35 +132,41 @@ iframe {
     border-radius: 10px;
 }
 
+/* Styling for an element with ID 'title' */
 #title {
     color: #fff;
 }
-    /* Add some basic styling */
-    #custom-menu {
-      display: none;
-      position: fixed;
-      background-color: #f9f9f9;
-      border: 1px solid #ccc;
-      padding: 8px;
-      z-index: 1000;
-    }
 
-/* Change the color of selected text */
+/* Styles for the custom menu */
+#custom-menu {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 8px;
+    z-index: 1000;
+}
+
+/* Selection styling for text */
 ::selection {
     background-color: rgba(60, 255, 0, 0.644);
-    /* Change this color to your desired color */
     color: #000000;
-    /* Change this color to your desired text color */
 }
-a::selection{
-    background-color:rgba(60, 255, 0, 0.644);
-    color:rgb(255, 0, 0);
+
+/* Selection styling for links */
+a::selection {
+    background-color: rgba(60, 255, 0, 0.644);
+    color: rgb(255, 0, 0);
 }
+
+/* Media query for responsive design */
 @media only screen and (max-width: 768px) {
+    /* Adjust layout for small screens */
     .custom-section {
         flex-direction: column;
     }
 
+    /* Adjust layout for small screens */
     .custom-block,
     .iframe-container {
         flex: 0 0 100%;
@@ -150,19 +174,23 @@ a::selection{
         justify-content: center;
     }
 
+    /* Adjust iframe width for small screens */
     iframe {
         width: 100%;
         height: 100vh;
     }
-.font {
-    color:#ff0000;
 
+    /* Additional styling for specific elements in small screens */
+    .font {
+        color: #ff0000;
+    }
+
+    .container {
+        padding: 10px;
+    }
 }
-.container {
-    padding: 10px;
-}
-}
-/* Add modern button styling */
+
+/* Modern button styling */
 .btn {
     background-color: #007aff;
     color: #fff;
@@ -173,23 +201,27 @@ a::selection{
     transition: background-color 0.3s ease;
 }
 
+/* Hover effect for buttons */
 .btn:hover {
     background-color: #0056b3;
 }
 
+/* Button with primary style */
 .btn-primary {
     background-color: #4cafaf;
 }
 
+/* Button with secondary style */
 .btn-secondary {
     background-color: #f44336;
 }
 
-/* Add styles for small buttons */
+/* Styles for small buttons */
 .btn-sm {
     font-size: 14px;
 }
 
+/* Styling for an element with ID 'custom-menu' */
 #custom-menu {
     display: none;
     position: fixed;
@@ -200,9 +232,13 @@ a::selection{
     z-index: 1000;
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
-#custom-menu:hover{
+
+/* Hover effect for custom menu */
+#custom-menu:hover {
     background-color: #fff;
 }
+
+/* Styling for buttons within the custom menu */
 #custom-menu button {
     display: block;
     width: 100%;
@@ -215,31 +251,37 @@ a::selection{
     color: #333;
 }
 
+/* Hover effect for buttons within the custom menu */
 #custom-menu button:hover {
     background-color: #f4f4f4;
 }
 
+/* Active state styling for buttons within the custom menu */
 #custom-menu button:active {
     background-color: #e0e0e0;
 }
-/* Add this CSS for the fade-in animation */
+
+/* Fade-in animation styles */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+/* Active state for fade-in animation */
 .fade-in.active {
     opacity: 1;
     transform: translateY(0);
 }
-/* Add this CSS for the fade-in and fade-out animations */
+
+/* Fade-in and fade-out animation styles */
 .fade-effect {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+/* Active state for fade-in and fade-out animation */
 .fade-effect.active {
     opacity: 1;
     transform: translateY(0);
