@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-
     <!-- Metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,26 +16,132 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 
-    <script>
-        function redirectToPage(page) {
-            // Replace 'target-page.html' with the actual filename of your target HTML page
-            window.location.href = page;
+    <style>
+        /* Your CSS styles here */
+        /* Navbar styles */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    </script>
+
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #fafafa;
+            color: #000;
+            line-height: 1.5;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #fff;
+            border-bottom: 1px solid #dfdfdf;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: top 0.3s; /* Add transition for smooth appearance */
+        }
+
+        .nav-wrapper {
+            width: 90%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-img {
+            height: 40px;
+            margin-top: 5px;
+        }
+
+        .nav-items {
+            display: none; /* Hide on mobile */
+        }
+
+        .icon {
+            height: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .user-profile {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-image: url(img/profile-pic.png);
+            background-size: cover;
+        }
+
+        /* Main styles */
+        .main {
+            padding: 60px 0 40px; /* Adjust for navbar */
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper {
+            width: 90%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Profile image styles */
+        .profile-image {
+            width: 100px; /* Set a default width */
+            height: 100px; /* Set a default height */
+            overflow: hidden; /* Ensure the image doesn't overflow its container */
+            border-radius: 50%; /* Make it circular */
+        }
+
+        .profile-image img {
+            width: 100%; /* Ensure the image fills the container */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Media query for responsiveness */
+        @media screen and (max-width: 768px) {
+            .nav-items {
+                display: flex;
+                gap: 10px;
+            }
+
+            .icon {
+                height: 25px;
+            }
+
+            .brand-img {
+                height: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-        <!-- Navbar -->
-        <nav class="navbar">
-            <div class="nav-wrapper">
-                <img src="img/logo.PNG" class="brand-img" alt="">
-                <div class="nav-items">
-                    <img src="img/home.PNG" class="icon" alt="">
-                    <img src="img/add.PNG" class="icon" alt="">
-                    <img src="img/like.PNG" class="icon" alt="">
-                    <div class="icon user-profile"></div>
-                </div>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-wrapper">
+            <img src="img/logo.PNG" class="brand-img" alt="">
+            <div class="nav-items">
+                <img src="img/home.PNG" class="icon" alt="">
+                <img src="img/add.PNG" class="icon" alt="">
+                <img src="img/like.PNG" class="icon" alt="">
+                <div class="icon user-profile"></div>
             </div>
-        </nav>
+        </div>
+    </nav>
         <!-- End of Navbar -->
     <header>
 
@@ -193,6 +296,17 @@
         <!-- End of container -->
 
     </main>
-
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("navbar").style.top = "0";
+            } else {
+                document.getElementById("navbar").style.top = "-60px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
 </body>
 </html>
