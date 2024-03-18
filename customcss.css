@@ -1,0 +1,221 @@
+        /* Your CSS styles here */
+        /* Navbar styles */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #fafafa;
+            color: #000;
+            line-height: 1.5;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #fff;
+            border-bottom: 1px solid #dfdfdf;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-wrapper {
+            width: 90%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-img {
+            height: 40px;
+            margin-top: 5px;
+        }
+
+        .nav-items {
+            display: none; /* Hide on mobile */
+        }
+
+        .icon {
+            height: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .user-profile {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-image: url(img/profile-pic.png);
+            background-size: cover;
+        }
+
+        /* Main styles */
+        .main {
+            padding: 60px 0 40px; /* Adjust for navbar */
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper {
+            width: 90%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .post {
+            width: 100%;
+            background: #fff;
+            border: 1px solid #dfdfdf;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .info {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(45deg, rgb(255, 230, 0), rgb(255, 0, 128) 80%);
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .username {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .post-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .post-content {
+            padding: 15px;
+        }
+
+        .reaction-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .reaction-wrapper .icon {
+            height: 25px;
+        }
+
+        .likes {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .post-time {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .comment-box {
+            width: calc(100% - 80px);
+            height: 30px;
+            border: 1px solid #dfdfdf;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .comment-btn {
+            width: 70px;
+            height: 30px;
+            border: none;
+            background: none;
+            color: #0066ff;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-items {
+                display: flex;
+                gap: 10px;
+            }
+
+            .icon {
+                height: 25px;
+            }
+
+            .brand-img {
+                height: 30px;
+            }
+
+            .post-content {
+                padding: 10px;
+            }
+
+            .reaction-wrapper {
+                margin-bottom: 5px;
+            }
+
+            .likes,
+            .description,
+            .post-time {
+                font-size: 12px;
+            }
+        }
+
+    
+        .profile-image {
+            width: 100px; /* Set a default width */
+            height: 100px; /* Set a default height */
+            overflow: hidden; /* Ensure the image doesn't overflow its container */
+            border-radius: 50%; /* Make it circular */
+        }
+        
+        .profile-image img {
+            width: 100%; /* Ensure the image fills the container */
+            height: auto; /* Maintain aspect ratio */
+        }
+        

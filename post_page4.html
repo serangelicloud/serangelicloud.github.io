@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="img\logo1.png">
+    <style>
+        /* Your CSS styles here */
+        /* Navbar styles */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #fafafa;
+            color: #000;
+            line-height: 1.5;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #fff;
+            border-bottom: 1px solid #dfdfdf;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-wrapper {
+            width: 90%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-img {
+            height: 40px;
+            margin-top: 5px;
+        }
+
+        .nav-items {
+            display: none; /* Hide on mobile */
+        }
+
+        .icon {
+            height: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .user-profile {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-image: url(img/profile-pic.png);
+            background-size: cover;
+        }
+
+        /* Main styles */
+        .main {
+            padding: 60px 0 40px; /* Adjust for navbar */
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper {
+            width: 90%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .post {
+            width: 100%;
+            background: #fff;
+            border: 1px solid #dfdfdf;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .info {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(45deg, rgb(255, 230, 0), rgb(255, 0, 128) 80%);
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .username {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .post-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .post-content {
+            padding: 15px;
+        }
+
+        .reaction-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .reaction-wrapper .icon {
+            height: 25px;
+        }
+
+        .likes {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .post-time {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .comment-box {
+            width: calc(100% - 80px);
+            height: 30px;
+            border: 1px solid #dfdfdf;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .comment-btn {
+            width: 70px;
+            height: 30px;
+            border: none;
+            background: none;
+            color: #0066ff;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-items {
+                display: flex;
+                gap: 10px;
+            }
+
+            .icon {
+                height: 25px;
+            }
+
+            .brand-img {
+                height: 30px;
+            }
+
+            .post-content {
+                padding: 10px;
+            }
+
+            .reaction-wrapper {
+                margin-bottom: 5px;
+            }
+
+            .likes,
+            .description,
+            .post-time {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-wrapper">
+            <img src="img/logo.PNG" class="brand-img" alt="">
+            <div class="nav-items">
+                <img src="img/home.PNG" class="icon" alt="">
+                <img src="img/add.PNG" class="icon" alt="">
+                <img src="img/like.PNG" class="icon" alt="">
+                <div class="icon user-profile"></div>
+            </div>
+        </div>
+    </nav>
+        <!-- End of Navbar -->
+    
+<!-- Posts section -->
+<section class="main">
+    <div class="wrapper">
+        <div class="left-col">
+            <!-- Post 1 -->
+            <div class="post">
+                <div class="info">
+                    <div class="user">
+                        <div class="profile-pic"><img src="img/pfp.jpg" alt=""></div>
+                        <p class="username">Jean-Paul Marat</p>
+                    </div>
+                    <img src="img/option.PNG" class="options" alt="">
+                </div>
+                <a href="Epost_page4.html"><img src="img/posts/morte.jpg" class="post-image" alt=""></a>
+                <div class="post-content">
+                    <div class="reaction-wrapper">
+                        <img src="img/like.PNG" class="icon like-icon" alt="">
+                        <img src="img/comment.PNG" class="icon comment-icon" alt="">
+                        <img src="img/send.PNG" class="icon send-icon" alt="">
+                        <img src="img/save.PNG" class="icon save-icon" alt="">
+                    </div>
+                    <p class="likes">10 like</p>
+                    <!-- comment -->
+                    <p class="description"><span><b>J.P. Marat</b> </span> Oggi siamo stati in piazza per dichiarare il nostro intento di sovvertire il potente per raggiungere la libertà.</p>
+                    <p class="post-time">2 mesi fa</p>
+                    <!-- end of comment -->
+                                        <!-- comment -->
+                                        <p class="description"><span><b>Maximilien Robespierre</b> </span>ricordiamoci che però il terrore è fondamentale per raggiungere i nostri obbiettivi.</p>
+                                        <p class="post-time">2 minuti fa</p>
+                                        <!-- end of comment -->
+                </div>
+            <!-- End of Post -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // JavaScript code
+
+    // When the DOM content is loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get all like icons
+        const likeIcons = document.querySelectorAll('.like-icon');
+
+        // Add event listener for each like icon
+        likeIcons.forEach(icon => {
+            icon.addEventListener('click', function () {
+                // Get the likes count element for the current post
+                const likesCount = this.parentElement.parentElement.querySelector('.likes');
+                // Get the current likes count
+                let currentLikes = parseInt(likesCount.textContent.replace(/\D/g, ''));
+                // Increment the likes count
+                currentLikes++;
+                // Update the likes count text
+                likesCount.textContent = currentLikes + ' likes';
+            });
+        });
+
+        // Get all comment post buttons
+        const commentButtons = document.querySelectorAll('.comment-btn');
+
+        // Add event listener for each comment post button
+        commentButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Get the comment box for the current post
+                const commentBox = this.parentElement.querySelector('.comment-box');
+                // Get the comment text
+                const commentText = commentBox.value.trim();
+                // If the comment is not empty
+                if (commentText !== '') {
+                    // Create a new comment element
+                    const comment = document.createElement('div');
+                    comment.classList.add('comment');
+                    comment.innerHTML = `<span>username</span>: ${commentText}`;
+                    // Get the comment wrapper for the current post
+                    const commentWrapper = this.parentElement.parentElement.querySelector('.comment-wrapper');
+                    // Insert the comment before the comment box
+                    commentWrapper.insertBefore(comment, commentBox);
+                    // Clear the comment box
+                    commentBox.value = '';
+                }
+            });
+        });
+    });
+</script>
+<script>
+    // JavaScript code
+
+    // When the DOM content is loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the post image
+        const postImage = document.querySelector('.post-image');
+
+        // Add double-click event listener to the post image
+        postImage.addEventListener('lclick', function () {
+            // Redirect to Epost_page3.html
+            window.location.href = 'Epost_page4.html';
+        });
+    });
+</script>
+</body>
+</html>
