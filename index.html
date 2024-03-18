@@ -190,14 +190,20 @@
         <!-- End of container -->
 
     </header>
-
+    <script>
+        function redirectToPage(page) {
+            console.log("clicked")
+            // Redirect to the specified page
+            window.location.href = page;
+        }
+    </script>
     <main>
 
         <div class="container">
 
             <div class="gallery">
 
-                <div class="gallery-item" onclick="redirectToPage('post_page.html')"tabindex="0">
+                <a href="post_page.html"><div class="gallery-item" onclick="redirectToPage('post_page.html')"tabindex="0"></a>
 
                     <a href="post_page.html"><img src="img/posts/giornalismo.jpg" class="gallery-image" alt=""></a>
 
@@ -212,7 +218,7 @@
 
                 </div>
 
-                <div class="gallery-item" onclick="redirectToPage('post_page1.html')"tabindex="0">
+                <a href="post_page.html"><div class="gallery-item" onclick="redirectToPage('post_page1.html')"tabindex="0"></a>
 
                     <a href="post_page.html"><img src="img/posts/selfie.jpg" class="gallery-image" alt=""></a>
 
@@ -227,7 +233,7 @@
 
                 </div>
 
-                <div class="gallery-item" onclick="redirectToPage('post_page2.html')"tabindex="0">
+                <a href="post_page.html"><div class="gallery-item" onclick="redirectToPage('post_page2.html')"tabindex="0"></a>
 
                     <a href="post_page.html"><img src="img/posts/speech.jpg" class="gallery-image" alt=""></a>
 
@@ -248,7 +254,7 @@
 
                 </div>
 
-                <div class="gallery-item" onclick="redirectToPage('post_page3.html')"tabindex="0">
+                <a href="post_page.html"><div class="gallery-item" onclick="redirectToPage('post_page3.html')"tabindex="0"></a>
 
                     <a href="post_page.html"><img src="img/posts/wow.jpg" class="gallery-image" alt=""></a>
 
@@ -269,7 +275,7 @@
 
                 </div>
 
-                <div class="gallery-item" onclick="redirectToPage('post_page4.html')"tabindex="0">
+                <a href="post_page.html"><div class="gallery-item" onclick="redirectToPage('post_page4.html')"tabindex="0"></a>
 
                     <a href="post_page.html"><img src="img/posts/morte.jpg" class="gallery-image" alt=""></a>
 
