@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentazione di Karl Marx</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+  <script defer src="index.js"></script>
+
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Navigation</h2>
+    </div>
+    <a href="index.html">Landing Page</a>
+    <a href="author.html">Author Biography</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="marx.html">Karl Marx</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content" id="content">
+    <img src="https://cdn.britannica.com/22/59822-050-98F24569/Karl-Marx-1870.jpg" alt="Foto dell'autore" class="author-image">
+    <h2>Presentazione di Karl Marx</h2>
+    <p>
+      Karl Marx è una delle figure più influenti del pensiero politico e sociale, nato a <a href="https://maps.app.goo.gl/2mCd5u5166d8VNnY8">Treviri</a> in Germania, il 5 maggio 1818. La sua vita e il suo pensiero hanno segnato profondamente la storia mondiale.
+    </p>
+    <p>
+      Cresciuto in un ambiente intellettuale e immerso nelle correnti <b name=" test ">filosofiche dell’epoca</b>, Marx studiò legge e filosofia, abbracciando inizialmente il pensiero hegeliano e sviluppando una critica radicale nei confronti della società capitalista.
+    </p>
+    <p>
+      Nel 1848, insieme a Friedrich Engels, pubblicò il <em>Manifesto del Partito Comunista</em>, un testo rivoluzionario che denunciava le ingiustizie del sistema capitalistico e proponeva la lotta di classe come strumento per il cambiamento sociale.
+    </p>
+    <p>
+      La sua opera monumentale, <em>Il Capitale</em>, rappresenta un’analisi profonda dei meccanismi economici e sociali del capitalismo, mettendo in luce il ruolo dello sfruttamento e le contraddizioni interne del sistema.
+    </p>
+    <p>
+      Nonostante le controversie e le difficoltà, Marx trascorse gran parte della sua vita in esilio a Londra, dove continuò a scrivere e a influenzare il dibattito politico internazionale. Morì il 14 marzo 1883, lasciando un’eredità intellettuale che ancora oggi stimola il pensiero critico e la lotta per la giustizia sociale.
+    </p>
+    <p>
+      La figura di Karl Marx continua a essere studiata e discussa in tutto il mondo, rappresentando un punto di riferimento fondamentale per comprendere le dinamiche economiche e sociali della società moderna.
+    </p>
+  </main>
+
+  <script>
+    // Toggle Sidebar
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+      document.getElementById("content").classList.toggle("active");
+    }
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("sidebar");
+      const hamburger = document.querySelector(".hamburger");
+      if (window.innerWidth <= 768) {
+        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+          sidebar.classList.remove("active");
+          document.getElementById("content").classList.remove("active");
+        }
+      }
+    });
+    // Adjust sidebar based on window resize
+    window.addEventListener("resize", function() {
+      if (window.innerWidth > 768) {
+        document.getElementById("sidebar").classList.add("active");
+        document.getElementById("content").classList.add("active");
+      } else {
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("content").classList.remove("active");
+      }
+    });
+  </script>
+</body>
+</html>

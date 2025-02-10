@@ -1,0 +1,137 @@
+/* Reset & Base Styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Headings & Paragraphs */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1em;
+  font-size: 1rem;
+}
+
+/* Links */
+a {
+  color: #007aff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #005bb5;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  background-color: #333;
+  padding-top: 20px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-header {
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar a {
+  display: block;
+  padding: 15px 25px;
+  font-size: 16px;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar a:hover {
+  background-color: #444;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  color: #333;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* Main Content Area */
+.content {
+  margin-left: 0;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  background: none !important;
+  box-shadow: none;
+}
+
+.content.active {
+  margin-left: 250px;
+}
+
+/* Preview Box Styles */
+.preview-box {
+  display: none;
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.preview-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+  .sidebar {
+    left: 0;
+  }
+  .content {
+    margin-left: 250px;
+  }
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Utility Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}

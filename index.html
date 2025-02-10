@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Il Nostro Progetto Scolastico</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+  <script defer src="index.js"></script>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Navigazione</h2>
+    </div>
+    <a href="index.html">Pagina Principale</a>
+    <a href="author.html">Biografia dell'Autore</a>
+    <a href="concepts.html">Concetti</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content" id="content">
+    <h2>Concetti</h2>
+    <p>
+      Questo è un sito web che abbiamo sviluppato per dimostrare le nostre abilità con i
+      <span class="preview-container" onmouseover='showPreview(event, "https://it.wikipedia.org/wiki/Collegamento_ipertestuale")' onmouseout="hidePreview()">
+        <a href="https://it.wikipedia.org/wiki/Collegamento_ipertestuale">link ipertestuali</a>
+      </span>.
+      Tutto il contenuto di questo sito web è stato scritto da Francesco Serangeli e Marianna Rago della classe 5AU.
+    </p>
+    <p>Clicca <a href="Marx.html">qui</a> per cominciare la tua esplorazione.</p>
+  </main>
+
+  <!-- Hover Preview Box -->
+  <div id="preview-box" class="preview-box"></div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+      document.getElementById("content").classList.toggle("active");
+    }
+
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("sidebar");
+      const hamburger = document.querySelector(".hamburger");
+      if (window.innerWidth <= 768 && !sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+        sidebar.classList.remove("active");
+        document.getElementById("content").classList.remove("active");
+      }
+    });
+
+    function showPreview(event, url) {
+      const previewBox = document.getElementById("preview-box");
+      previewBox.innerHTML = `<strong>Caricamento anteprima...</strong>`;
+
+      fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
+        .then(response => response.json())
+        .then(data => {
+          previewBox.innerHTML = `<strong>Wikipedia: Collegamento Ipertestuale</strong><br>
+                                  Concetto chiave della navigazione su Internet.
+                                  <br>
+                                  <a href="${url}" target="_blank">Leggi di più</a>`;
+        });
+
+      previewBox.style.display = "block";
+      previewBox.style.left = `${event.pageX}px`;
+      previewBox.style.top = `${event.pageY + 20}px`;
+    }
+
+    function hidePreview() {
+      document.getElementById("preview-box").style.display = "none";
+    }
+  </script>
+</body>
+</html>
