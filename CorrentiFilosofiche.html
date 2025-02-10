@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Correnti Filosofiche del Periodo di Karl Marx</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Navigation</h2>
+    </div>
+    <a href="index.html">Landing Page</a>
+    <a href="author.html">Author Biography</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="marx.html">Karl Marx</a>
+    <a href="CorrentiFilosofiche.html">Correnti Filosofiche</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content" id="content">
+    <h2>Le Correnti Filosofiche nel Periodo di Karl Marx</h2>
+    
+    <p>
+      Il periodo di Karl Marx, la prima metà del XIX secolo, fu caratterizzato da importanti correnti filosofiche che influenzarono profondamente il pensiero politico e sociale. Marx stesso si confrontò con queste idee, criticandole e sviluppando una sua visione materiale della storia.
+    </p>
+    
+    <h3>1. Idealismo Tedesco</h3>
+    <p>
+        L'idealismo tedesco dominava il panorama filosofico in Germania e Marx ne fu influenzato, sebbene lo criticasse e lo superasse con la sua filosofia materialista. Le figure principali di questo movimento furono:
+<lu>
+        <li><b><a href="kant.html">Immanuel Kant:</a></b> Sebbene non contemporaneo a Marx, Kant influenzò profondamente la filosofia tedesca, in particolare con la sua teoria delle categorie e della conoscenza.</li>
+        <li>Johann Gottlieb Fichte: Sostenitore dell'idealismo soggettivo, focalizzò l'attenzione sul ruolo dell'autocoscienza e del soggetto nella costruzione della realtà.</li>
+        <li>Georg Wilhelm Friedrich Hegel: Hegel è la figura centrale dell'idealismo tedesco, con la sua dialettica e la concezione della realtà come un processo storico di evoluzione delle idee. Marx, pur partendo da Hegel, lo criticò per il suo idealismo, sviluppando una teoria materialista della storia.</li>    </lu></p>
+    
+    
+    <h3 id="Materialismo_storico">2. Materialismo</h3>
+    <p>
+        Il materialismo era la corrente filosofica che Marx abbracciò, in contrasto con l'idealismo. Il materialismo affermava che la realtà è costituita principalmente da materia e che le idee sono il riflesso delle condizioni materiali. Marx portò il materialismo alla sua applicazione sociale e storica con la sua teoria del materialismo storico, che sosteneva che la struttura economica e sociale determina la coscienza e la cultura.
+
+        <lu><li>Ludwig Feuerbach: Feuerbach è uno dei principali filosofi materialisti che influenzò Marx. Sosteneva che la religione fosse una proiezione dei desideri umani e un riflesso delle condizioni sociali e materiali.    
+        </li></lu></p>
+    <h3>3. Socialismo Utopico</h3>
+    <p>
+        Il socialismo utopico era una corrente filosofica che cercava di immaginare una società ideale senza conflitti di classe. Sebbene Marx lo criticasse, lo considerava un precursore del suo pensiero. Tra i principali socialisti utopici troviamo:
+<lu>
+        <li>Charles Fourier: Proponeva una società basata sulla cooperazione e sul benessere collettivo.</li>
+        <li>Robert Owen: Sostenitore della creazione di comunità cooperative e dell'educazione come mezzo di riforma sociale.</li>
+        <li>Saint-Simon: Un altro pensatore che cercava di fondare una nuova società basata su una pianificazione razionale e scientifica.</li>
+    </lu>
+        </p>
+
+    <h3>4. Positivismo</h3>
+    <p>
+        Il positivismo, sviluppato da Auguste Comte, enfatizzava l'importanza della scienza e dell'osservazione empirica come mezzi per comprendere la realtà sociale e naturale. Sebbene Marx non fosse un positivista in senso stretto, la sua attenzione al metodo scientifico per analizzare la società e la storia fu influenzata dal positivismo.
+    </p>
+    <h3>5. Filosofia della Storia</h3>
+    <p>
+        Il pensiero economico classico, rappresentato principalmente da Adam Smith e David Ricardo, fu fondamentale per la comprensione da parte di Marx dei meccanismi economici. Marx criticò però la teoria del valore-lavoro di Ricardo, reinterpretandola in modo radicale all'interno della sua teoria della plusvalenza e del capitalismo come sistema di sfruttamento.
+    </p>
+
+    <h3>6. Anarchismo</h3>
+    <p>
+        Mentre Marx sviluppava le sue teorie, alcune idee anarchiche emersero, soprattutto in relazione alla critica al potere statale e all'autoritarismo. Sebbene Marx non fosse un anarchico, aveva rapporti con alcuni pensatori anarchici come Mikhail Bakunin, che rappresentava una corrente che rifiutava qualsiasi forma di autorità centralizzata.
+    </p>
+
+  </main>
+
+  <script>
+    // Toggle Sidebar
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+      document.getElementById("content").classList.toggle("active");
+    }
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("sidebar");
+      const hamburger = document.querySelector(".hamburger");
+      if (window.innerWidth <= 768) {
+        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+          sidebar.classList.remove("active");
+          document.getElementById("content").classList.remove("active");
+        }
+      }
+    });
+
+    // Adjust sidebar based on window resize
+    window.addEventListener("resize", function() {
+      if (window.innerWidth > 768) {
+        document.getElementById("sidebar").classList.add("active");
+        document.getElementById("content").classList.add("active");
+      } else {
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("content").classList.remove("active");
+      }
+    });
+  </script>
+  Hover Preview Box
+  <div id="preview-box" class="preview-box"></div>
+
+</body>
+</html>

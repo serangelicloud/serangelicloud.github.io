@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Il Manifesto del Partito Comunista</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Navigation</h2>
+    </div>
+    <a href="index.html">Landing Page</a>
+    <a href="author.html">Author Biography</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="marx.html">Karl Marx</a>
+    <a href="engels.html">Friedrich Engels</a>
+    <a href="il_capitale.html">Il Capitale</a>
+    <a href="manifesto.html">Manifesto del Partito Comunista</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content" id="content">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Communist_Manifesto_%28German%2C_1848%29.png/250px-Communist_Manifesto_%28German%2C_1848%29.png" 
+         alt="Copertina del Manifesto del Partito Comunista" class="author-image">
+    <h2>Il Manifesto del Partito Comunista</h2>
+    <p>
+      Il <em>Manifesto del Partito Comunista</em> è un'opera scritta da Karl Marx e Friedrich Engels, pubblicata per la prima volta il 21 febbraio 1848. Questo documento rappresenta una delle basi teoriche del comunismo e ha avuto un impatto enorme sulla storia politica e sociale del mondo.
+    </p>
+    <p>
+      Il manifesto si apre con la celebre frase: <strong>“Uno spettro si aggira per l’Europa: lo spettro del comunismo”</strong>, e prosegue con un’analisi delle lotte di classe e del ruolo della borghesia e del proletariato nella storia.
+    </p>
+    <p>
+      Uno dei concetti chiave del testo è la necessità della <a href="https://it.wikipedia.org/wiki/Lotta_di_classe">lotta di classe</a> per superare il sistema capitalistico e arrivare a una società senza classi, basata sulla proprietà collettiva dei mezzi di produzione.
+    </p>
+    <p>
+      Il manifesto termina con l’invito all’unità tra i lavoratori di tutto il mondo, con la famosa esortazione: <strong>“Proletari di tutti i paesi, unitevi!”</strong>.
+    </p>
+    <p>
+      Ancora oggi, il <em>Manifesto del Partito Comunista</em> viene studiato e discusso per la sua importanza storica e politica, influenzando movimenti sociali e rivoluzioni in tutto il mondo.
+    </p>
+  </main>
+
+  <script>
+    // Toggle Sidebar
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+      document.getElementById("content").classList.toggle("active");
+    }
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("sidebar");
+      const hamburger = document.querySelector(".hamburger");
+      if (window.innerWidth <= 768) {
+        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+          sidebar.classList.remove("active");
+          document.getElementById("content").classList.remove("active");
+        }
+      }
+    });
+    // Adjust sidebar based on window resize
+    window.addEventListener("resize", function() {
+      if (window.innerWidth > 768) {
+        document.getElementById("sidebar").classList.add("active");
+        document.getElementById("content").classList.add("active");
+      } else {
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("content").classList.remove("active");
+      }
+    });
+  </script>
+  Hover Preview Box
+  <div id="preview-box" class="preview-box"></div>
+</body>
+</html>

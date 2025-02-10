@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plusvalore - Karl Marx</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="main.css" />
+  <script src="index.js" defer></script>
+</head>
+
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Navigation</h2>
+    </div>
+    <a href="index.html">Landing Page</a>
+    <a href="author.html">Autore</a>
+    <a href="capitale.html">Il Capitale</a>
+    <a href="plusvalore.html">Plusvalore</a>
+    <a href="manifesto.html">Manifesto del Partito Comunista</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content" id="content">
+    <h1>Il Plusvalore secondo Karl Marx</h1>
+    <p>
+      Il concetto di **plusvalore** è fondamentale nell'analisi economica di Karl Marx. Si riferisce alla
+      differenza tra il valore che il lavoro umano aggiunge a un bene e il salario che il lavoratore riceve per
+      la sua attività lavorativa.
+    </p>
+    <p>
+      Marx sostiene che nel sistema capitalistico, i capitalisti traggono profitto dallo sfruttamento del lavoro,
+      appropriandosi di una parte del valore che i lavoratori producono, ma che non viene loro restituito sotto
+      forma di salario. Questo surplus, chiamato **plusvalore**, è alla base della dinamica di accumulazione del
+      capitale.
+    </p>
+
+    <h2>Definizione di Plusvalore</h2>
+    <p>
+      Il **plusvalore** è il valore che il lavoratore crea oltre il valore del proprio salario, ed è il cuore
+      del processo di sfruttamento nel capitalismo. Marx spiega che il lavoro è l'unica fonte di valore in
+      un'economia, ma i capitalisti pagano i lavoratori una parte inferiore del valore che questi ultimi
+      producono. Il plusvalore rappresenta dunque il profitto derivante dallo sfruttamento del lavoro.
+    </p>
+
+    <h2>Tipi di Plusvalore</h2>
+    <ul>
+      <li><strong>Plusvalore Assoluto:</strong> Si ottiene prolungando la giornata lavorativa senza aumentare
+        la produttività. Il lavoratore lavora più a lungo per lo stesso salario.</li>
+      <li><strong>Plusvalore Relativo:</strong> Si ottiene aumentando la produttività del lavoro, riducendo il
+        tempo necessario per produrre un bene, ma senza aumentare il salario del lavoratore.</li>
+    </ul>
+
+    <h2>Il Plusvalore e il Capitale</h2>
+    <p>
+      Secondo Marx, il plusvalore è essenziale per comprendere il funzionamento del capitalismo. I capitalisti
+      non producono valore da soli, ma dipendono dal lavoro salariato per generare plusvalore. Questo meccanismo
+      è alla base della disuguaglianza economica e della concentrazione di ricchezza nelle mani di pochi, mentre
+      i lavoratori restano nella miseria.
+    </p>
+
+    <h2>Critiche al Plusvalore</h2>
+    <p>
+      La teoria del plusvalore è stata oggetto di numerose critiche nel corso della storia. Alcuni economisti
+      hanno messo in discussione l'idea che il lavoro sia l'unica fonte di valore, proponendo teorie alternative
+      che coinvolgono altri fattori come il capitale o la tecnologia. Tuttavia, la teoria del plusvalore rimane
+      una delle critiche più potenti al sistema capitalistico.
+    </p>
+
+    <p>
+      In sintesi, il **plusvalore** è il concetto che Marx utilizza per descrivere lo sfruttamento dei lavoratori
+      da parte dei capitalisti, dove la ricchezza prodotta dai lavoratori è espropriata dai capitalisti sotto forma
+      di profitto.
+    </p>
+
+  </main>
+
+  <script>
+    // Toggle Sidebar
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+      document.getElementById("content").classList.toggle("active");
+    }
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener("click", function (event) {
+      const sidebar = document.getElementById("sidebar");
+      const hamburger = document.querySelector(".hamburger");
+      if (window.innerWidth <= 768) {
+        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+          sidebar.classList.remove("active");
+          document.getElementById("content").classList.remove("active");
+        }
+      }
+    });
+
+    // Adjust sidebar based on window resize
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 768) {
+        document.getElementById("sidebar").classList.add("active");
+        document.getElementById("content").classList.add("active");
+      } else {
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("content").classList.remove("active");
+      }
+    });
+  </script>
+
+</body>
+
+</html>

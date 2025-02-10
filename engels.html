@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentazione di Friedrich Engels</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Navigation</h2>
+    </div>
+    <a href="index.html">Landing Page</a>
+    <a href="author.html">Author Biography</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="engels.html">Friedrich Engels</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content" id="content">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Friedrich_Engels_portrait_%28cropped%29.jpg" alt="Foto di Friedrich Engels" class="author-image">
+    <h2>Friedrich Engels</h2>
+    <p>
+      Friedrich Engels è stato un filosofo, economista e rivoluzionario tedesco, nato a <a href="https://www.google.com/maps?q=Wuppertal,+Germania">Wuppertal</a> il 28 novembre 1820. Fu uno dei principali collaboratori di <a href="Marx.html">Karl Marx</a> e coautore di importanti opere del socialismo scientifico.
+    </p>
+    <p>
+      Proveniente da una famiglia borghese, Engels ebbe una formazione imprenditoriale ma sviluppò ben presto una forte critica al sistema capitalistico. Il suo incontro con <a href="Marx.html">Karl Marx</a> segnò l’inizio di una collaborazione fondamentale per il pensiero politico ed economico moderno.
+    </p>
+    <p>
+      Insieme a <a href="Marx.html">Marx</a>, Engels scrisse il celebre <em>Manifesto del Partito Comunista</em> nel 1848, un testo rivoluzionario che delineava la lotta di classe come motore della storia. Inoltre, contribuì alla stesura e diffusione de <em><a href=capitale.html>Il Capitale</a></em>, finanziando il lavoro di <a href="Marx.html">Marx</a> e proseguendolo dopo la sua morte.
+    </p>
+    <p>
+      Engels è anche autore di <em>L'origine della famiglia, della proprietà privata e dello Stato</em>, in cui analizza l'evoluzione sociale delle istituzioni umane attraverso la lente del materialismo storico.
+    </p>
+    <p>
+      Morì il 5 agosto 1895 a Londra, lasciando un'importante eredità teorica che ancora oggi viene studiata e discussa in tutto il mondo. Il suo contributo al pensiero marxista è fondamentale per comprendere le dinamiche economiche, sociali e politiche della società moderna.
+    </p>
+  </main>
+
+  <script>
+    // Toggle Sidebar
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+      document.getElementById("content").classList.toggle("active");
+    }
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("sidebar");
+      const hamburger = document.querySelector(".hamburger");
+      if (window.innerWidth <= 768) {
+        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+          sidebar.classList.remove("active");
+          document.getElementById("content").classList.remove("active");
+        }
+      }
+    });
+    // Adjust sidebar based on window resize
+    window.addEventListener("resize", function() {
+      if (window.innerWidth > 768) {
+        document.getElementById("sidebar").classList.add("active");
+        document.getElementById("content").classList.add("active");
+      } else {
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("content").classList.remove("active");
+      }
+    });
+  </script>
+  Hover Preview Box
+  <div id="preview-box" class="preview-box"></div>
+</body>
+</html>

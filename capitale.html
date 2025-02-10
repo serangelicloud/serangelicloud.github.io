@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Il Capitale - Karl Marx</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Navigation</h2>
+    </div>
+    <a href="index.html">Landing Page</a>
+    <a href="author.html">Author Biography</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="marx.html">Karl Marx</a>
+    <a href="engels.html">Friedrich Engels</a>
+    <a href="il_capitale.html">Il Capitale</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content" id="content">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Das_Kapital%2C_1867.jpg" alt="Copertina di Il Capitale" class="author-image">
+    <h2>Il Capitale</h2>
+    <p>
+      <em>Il Capitale</em> (titolo originale: <em>Das Kapital</em>) è l'opera principale di Karl Marx, pubblicata per la prima volta nel 1867. Questo testo rappresenta una delle analisi più profonde e influenti del sistema economico capitalistico.
+    </p>
+    <p>
+      Marx dedica l’opera allo studio della produzione capitalistica, spiegando come il profitto sia generato attraverso lo sfruttamento della forza lavoro. Il concetto chiave è quello del <a href="https://it.wikipedia.org/wiki/Plusvalore">plusvalore</a>, ovvero la differenza tra il valore prodotto dai lavoratori e il salario che ricevono.
+    </p>
+    <p>
+      Il libro si basa sulla teoria del <a href="https://it.wikipedia.org/wiki/Materialismo_dialettico">materialismo dialettico</a> e del <a href="https://it.wikipedia.org/wiki/Materialismo_storico">materialismo storico</a>, e rappresenta un'analisi dettagliata delle crisi economiche, delle contraddizioni interne al capitalismo e delle sue tendenze di sviluppo.
+    </p>
+    <p>
+      L'opera si compone di tre volumi: il primo pubblicato da Marx nel 1867, mentre i successivi furono completati e pubblicati postumi da Friedrich Engels nel 1885 e nel 1894.
+    </p>
+    <p>
+      <em>Il Capitale</em> continua a essere studiato e dibattuto ancora oggi, influenzando discipline come economia, sociologia e politica.
+    </p>
+  </main>
+
+  <script>
+    // Toggle Sidebar
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+      document.getElementById("content").classList.toggle("active");
+    }
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("sidebar");
+      const hamburger = document.querySelector(".hamburger");
+      if (window.innerWidth <= 768) {
+        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+          sidebar.classList.remove("active");
+          document.getElementById("content").classList.remove("active");
+        }
+      }
+    });
+    // Adjust sidebar based on window resize
+    window.addEventListener("resize", function() {
+      if (window.innerWidth > 768) {
+        document.getElementById("sidebar").classList.add("active");
+        document.getElementById("content").classList.add("active");
+      } else {
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("content").classList.remove("active");
+      }
+    });
+  </script>
+  Hover Preview Box
+  <div id="preview-box" class="preview-box"></div>
+</body>
+</html>
