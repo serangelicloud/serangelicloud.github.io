@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentazione di Karl Marx</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+
+  <script src="index.js" defer></script>
+
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Navigation</h2>
+    </div>
+    <a href="index.html">Landing Page</a>
+    <a href="author.html">Author Biography</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="marx.html">Karl Marx</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content" id="content">
+
+    <img src="https://cdn.studenti.stbm.it/images/2017/01/02/hegel-orig.jpeg" alt="Foto di hegel" class="author-image">
+
+    <h2 >Hegel</h2>
+    <p>
+        Hegel influenzò Marx principalmente attraverso il suo metodo dialettico e la sua concezione della storia. In particolare, Hegel sviluppò una dialettica che implica la progressione delle idee tramite tesi, antitesi e sintesi, un processo che egli intendeva come l’evoluzione dello Spirito Assoluto attraverso le contraddizioni.
+      </p>
+      
+      <p>
+        Marx, pur adattando e criticando il pensiero di Hegel, adottò questa struttura dialettica per analizzare la società e la storia, invertendo però la sua base idealistica. In altre parole, sebbene riconoscesse il valore metodologico della dialettica, <a href="Marx.html">Marx</a> rifiutò l’idea che le idee siano il motore primario della storia.
+      </p>
+      
+      <p>
+        Marx si distaccò dall’idealismo hegeliano, sostenendo che la materia e le condizioni economiche sono fondamentali per comprendere la società, non le idee astratte. Questo approccio si esprime nel concetto di <em><a href="https://it.wikipedia.org/wiki/Materialismo_storico" target="_blank">Materialismo storico</a>.</em>, in cui le forze produttive e le relazioni di produzione determinano lo sviluppo sociale e politico.
+        
+      </p>
+      
+      <p>
+        Inoltre, mentre Hegel vedeva la storia come un percorso verso la libertà e la razionalità, Marx la interpretava come un processo contraddittorio, segnato dalla lotta di classe. In questa visione, l’emancipazione dei proletari doveva emergere dal superamento del capitalismo tramite la <a href="https://it.wikipedia.org/wiki/Lotta_di_classe" target="_blank">lotta di classe</a>, un concetto che ha influenzato notevolmente la teoria politica moderna. 
+      </p>
+      
+      <p>
+        Infine, il concetto di <a href="https://it.wikipedia.org/wiki/Alienazione" target="_blank">alienazione</a>. in <a href="Marx.html">Marx</a> trae parte ispirazione dai pensieri hegeliani sull’alienazione, ma viene reinterpretato nel contesto delle dinamiche lavorative e della proprietà nel capitalismo. Questa rielaborazione ha contribuito a una nuova comprensione del rapporto tra individuo e società.
+      </p>
+      
+      <p>
+        In sintesi, sebbene <a href="Marx.html">Marx</a> criticasse profondamente Hegel, le sue teorie furono plasmate dalla dialettica hegeliana, trasformando la filosofia idealista in un’analisi <a href="https://it.wikipedia.org/wiki/Materialismo_storico" target="_blank">materialista e storica</a> delle dinamiche sociali ed economiche. Tale trasformazione ha aperto nuove prospettive nel pensiero critico moderno, lasciando un’impronta indelebile nella storia della filosofia.
+      </p>
+      
+  </main>
+
+
+  <script>
+    // Toggle Sidebar
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+      document.getElementById("content").classList.toggle("active");
+    }
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("sidebar");
+      const hamburger = document.querySelector(".hamburger");
+      if (window.innerWidth <= 768) {
+        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+          sidebar.classList.remove("active");
+          document.getElementById("content").classList.remove("active");
+        }
+      }
+    });
+    // Adjust sidebar based on window resize
+    window.addEventListener("resize", function() {
+      if (window.innerWidth > 768) {
+        document.getElementById("sidebar").classList.add("active");
+        document.getElementById("content").classList.add("active");
+      } else {
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("content").classList.remove("active");
+      }
+    });
+  </script>
+  Hover Preview Box
+  <div id="preview-box" class="preview-box"></div>
+
+  <!--  -->
+</body>
+</html>

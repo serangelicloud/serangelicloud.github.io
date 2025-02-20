@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentazione di Karl Marx</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+
+  <script src="index.js" defer></script>
+
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Navigation</h2>
+    </div>
+    <a href="index.html">Landing Page</a>
+    <a href="author.html">Author Biography</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="marx.html">Karl Marx</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content" id="content">
+    <h2>Gli spostamenti di marx</h2>
+    <p>
+        <strong>Treviri (1818-1835)</strong><br>
+        Marx nasce a <a href="https://it.wikipedia.org/wiki/Treviri" data-map="true" data-lat="49.7497" data-lon="6.6371" data-zoom="13">Treviri</a> e frequenta il liceo della città, sviluppando un forte interesse per la filosofia e la letteratura.
+      </p>
+      
+      <p>
+        <strong>Bonn e <a href="https://it.wikipedia.org/wiki/Berlino" data-map="true"   data-lon="52.520008"  data-lat="13.404954"  data-zoom="7">Berlino</a> (1835-1841)</strong><br>
+        Studia legge a <a href="https://it.wikipedia.org/wiki/Bonn" data-map="true"   data-lon="50.733334"  data-lat="7.100000"  data-zoom="9">Bonn</a>, poi si trasferisce a <a href="https://it.wikipedia.org/wiki/Berlino" data-map="true"   data-lon="52.520008"  data-lat="13.404954"  data-zoom="7">Berlino</a>, dove approfondisce filosofia e storia. Qui completa la sua tesi di laurea e si avvicina agli ambienti radicali, influenzato dall'idealismo hegeliano, iniziando la sua attività giornalistica come redattore della Rheinische Zeitung.
+      </p>
+      
+      <p>
+        <strong>Parigi (1843-1845)</strong><br>
+        Dopo la chiusura del giornale, si trasferisce a <a href="https://it.wikipedia.org/wiki/Parigi" data-map="true" data-lon="48.864716" data-lat="2.349014" data-zoom="10">Parigi</a> e si avvicina agli ambienti socialisti e comunisti. Qui conosce Friedrich Engels, con cui stringe un'amicizia e una collaborazione duratura. Inizia a sviluppare le basi del materialismo storico e scrive opere fondamentali come la <em>Critica della filosofia del diritto di Hegel</em> (1843).
+      </p>
+      
+      <p>
+        <strong>Bruxelles (1845-1848)</strong><br>
+        A <a href="https://it.wikipedia.org/wiki/Bruxelles" data-map="true" data-lat="4.24" data-lon="50.916" data-zoom="8">Bruxelles</a>, <a href="Marx.html">Marx</a> approfondisce le sue teorie sul socialismo scientifico. Nel 1848, insieme a <a href="engels.html">Engels</a>, scrive il <em><a href="manifesto.html">Manifesto del Partito Comunista</a></em>, che diventa il testo fondamentale del comunismo rivoluzionario.
+      </p>
+      
+      <p>
+        <strong>Londra e l’esilio (1849-1883)</strong><br>
+        Dopo le rivoluzioni del 1848, è costretto all'esilio in Inghilterra. A <a href="https://it.wikipedia.org/wiki/Londra" data-map="true" data-lon="51.5074" data-lat="-0.1278" data-zoom="9">Londra</a> studia economia politica e scrive <em><a href="capitale.html">Il Capitale</a></em>, la sua opera più importante, in cui analizza il funzionamento del capitalismo e il concetto di sfruttamento del lavoro. Le sue teorie continuano a influenzare il pensiero economico e politico contemporaneo.
+      </p>
+      
+      
+  </main>
+
+
+  <script>
+    // Toggle Sidebar
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+      document.getElementById("content").classList.toggle("active");
+    }
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("sidebar");
+      const hamburger = document.querySelector(".hamburger");
+      if (window.innerWidth <= 768) {
+        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+          sidebar.classList.remove("active");
+          document.getElementById("content").classList.remove("active");
+        }
+      }
+    });
+    // Adjust sidebar based on window resize
+    window.addEventListener("resize", function() {
+      if (window.innerWidth > 768) {
+        document.getElementById("sidebar").classList.add("active");
+        document.getElementById("content").classList.add("active");
+      } else {
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("content").classList.remove("active");
+      }
+    });
+  </script>
+  Hover Preview Box
+  <div id="preview-box" class="preview-box"></div>
+
+  <!--  -->
+</body>
+</html>

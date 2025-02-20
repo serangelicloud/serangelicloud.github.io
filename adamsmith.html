@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentazione di Karl Marx</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+
+  <script src="index.js" defer></script>
+
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Navigation</h2>
+    </div>
+    <a href="index.html">Landing Page</a>
+    <a href="author.html">Author Biography</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="marx.html">Karl Marx</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content" id="content">
+    <img src="https://cdn.britannica.com/22/59822-050-98F24569/Karl-Marx-1870.jpg" alt="Foto di Karl Marx" class="author-image">
+    <h2>Karl Marx</h2>
+    <h3>Nascita e infanzia (1818-1835)</h3>
+    <p>Adam Smith, considerato il padre dell'economia moderna, ha avuto un impatto significativo sul pensiero economico e su <a href="marx.html">Karl Marx</a>, nonostante le loro posizioni contrapposte.</p>
+
+    <p>Nel suo capolavoro "La ricchezza delle nazioni", Smith sostenne l'importanza della divisione del lavoro e del libero mercato, affermando che il mercato, attraverso la "mano invisibile", guida l'allocazione efficiente delle risorse.</p>
+    
+    <p>Marx riconobbe il contributo di Smith alla comprensione del capitalismo, ma lo criticò per la sua visione idealistica. Mentre Smith celebrava il libero mercato e la <a href="plusvalore.html">crescita del capitale</a>, <a href="marx.html">Marx</a> si concentrò sui conflitti intrinseci e sulle contraddizioni del sistema capitalistico. Egli sviluppò la sua teoria della <a href="https://it.wikipedia.org/wiki/Lotta_di_classe">lotta di classe</a>, prendendo spunto dalle analisi di Smith sulla produzione e sul lavoro, ma enfatizzando che il lavoro salariato fosse sfruttato dal capitale.</p>
+    
+    <p>Inoltre, Smith descrisse il valore come una funzione del lavoro, un'idea che <a href="marx.html">Karl Marx</a> ampliò nella sua teoria del valore-lavoro, sostenendo che il valore di un bene è direttamente correlato alla quantità di lavoro necessario per produrlo. Questa ispirazione fu fondamentale nella formulazione della critica di <a href="marx.html">Marx</a> all'economia politica classica, in cui sosteneva che il capitalismo fosse intrinsecamente sfruttatore.</p>
+    
+    <p>In sintesi, pur essendo in contrasto su molti aspetti, Adam Smith fornì a <a href="marx.html">Marx</a> le basi teoriche per analizzare e criticare il <a href="capitale.html">capitalismo</a>, evidenziando le sue ingiustizie e proponendo una visione alternativa del sistema economico.</p>
+    
+  </main>
+
+
+  <script>
+    // Toggle Sidebar
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+      document.getElementById("content").classList.toggle("active");
+    }
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener("click", function(event) {
+      const sidebar = document.getElementById("sidebar");
+      const hamburger = document.querySelector(".hamburger");
+      if (window.innerWidth <= 768) {
+        if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+          sidebar.classList.remove("active");
+          document.getElementById("content").classList.remove("active");
+        }
+      }
+    });
+    // Adjust sidebar based on window resize
+    window.addEventListener("resize", function() {
+      if (window.innerWidth > 768) {
+        document.getElementById("sidebar").classList.add("active");
+        document.getElementById("content").classList.add("active");
+      } else {
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("content").classList.remove("active");
+      }
+    });
+  </script>
+  Hover Preview Box
+  <div id="preview-box" class="preview-box"></div>
+
+  <!--  -->
+</body>
+</html>
