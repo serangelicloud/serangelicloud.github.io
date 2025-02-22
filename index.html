@@ -6,9 +6,29 @@
   <title>Il Nostro Progetto Scolastico</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="main.css">
-    <script src="index.js" defer></script>
-
-
+  <script src="index.js" defer></script>
+  <style>
+    /* Stili per l'animazione e la presentazione dei nomi del team */
+    .team-member {
+      cursor: pointer;
+      transition: transform 0.3s ease, color 0.3s ease;
+      display: inline-block;
+      padding: 0 5px;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .team-member:hover {
+      color: #007bff;
+    }
+    
+    @keyframes bounce {
+      0%   { transform: scale(1); }
+      30%  { transform: scale(1.2); }
+      50%  { transform: scale(0.9); }
+      100% { transform: scale(1); }
+    }
+  </style>
 </head>
 <body>
   <!-- Hamburger Menu -->
@@ -17,31 +37,58 @@
   <!-- Sidebar -->
   <nav class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <h2>Navigation</h2>
+      <h2>Navigazione</h2>
     </div>
-    <a href="index.html">Home</a>
-    <a href="Marx.html">Marx</a>
-    <a href="concepts.html">Concepts</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <strong>Figure</strong>
+        <ul>
+          <li><a href="Marx.html">Karl Marx</a></li>
+          <li><a href="engels.html">Friedrich Engels</a></li>
+          <li><a href="hegel.html">Georg Hegel</a></li>
+          <li><a href="heinrichmarx.html">Heinrich Marx</a></li>
+          <li><a href="adamsmith.html">Adam Smith</a></li>
+        </ul>
+      </li>
+      <li>
+        <strong>Opere</strong>
+        <ul>
+          <li><a href="capitale.html">Il Capitale</a></li>
+          <li><a href="manifesto.html">Manifesto del Partito Comunista</a></li>
+          <li><a href="plusvalore.html">Plusvalore</a></li>
+        </ul>
+      </li>
+      <li>
+        <strong>Concetti</strong>
+        <ul>
+          <li><a href="CorrentiFilosofiche.html">Correnti Filosofiche</a></li>
+          <li><a href="spostamenti.html">Spostamenti</a></li>
+        </ul>
+      </li>
+    </ul>
   </nav>
 
   <!-- Main Content -->
   <main class="content" id="content">
     <h2>Concetti</h2>
     <p>
-      Questo è un sito web che abbiamo sviluppato per dimostrare le nostre abilità con i
-        <a href="https://it.wikipedia.org/wiki/Collegamento_ipertestuale">link ipertestuali</a>
-      </span>.
-      Tutto il contenuto di questo sito web è stato scritto da <a href="https://www.instagram.com/francesco.serangeli?igsh=MTR6c28zbDd5MTM4cw==">Francesco Serangeli</a>, <a href="https://www.instagram.com/mary_rago0?igsh=MTE1bnB1N2ZqczE1bA==">Marianna Rago</a> e <a href="https://www.instagram.com/trendelina.xhafa?igsh=MTk2dXRlN3IwbGlxMw==">Trendelina Xhafa</a> della classe 5AU.
+      Questo è un sito web che abbiamo sviluppato per dimostrare le nostre abilità con i 
+      <a href="https://it.wikipedia.org/wiki/Collegamento_ipertestuale">link ipertestuali</a>.
     </p>
-    <p>Clicca <a href="Marx.html">qui</a> per cominciare la tua esplorazione.</p>
-    <!-- <div class="avatar-wrapper">
-      <img class="avatar" src="https://graph.facebook.com/USER_ID/picture?type=square" alt="User Avatar">
-      <div class="avatar-outline"></div> marianna ti voglio bene  ma non ho tempo.
-    </div> -->
-    
+    <p>
+      Tutto il contenuto di questo sito web è stato scritto da 
+      <a href="https://www.instagram.com/francesco.serangeli?igsh=MTR6c28zbDd5MTM4cw==" class="team-member" onclick="animateAndRedirect(event, this)">Francesco Serangeli</a>, 
+      <a href="https://www.instagram.com/mary_rago0?igsh=MTE1bnB1N2ZqczE1bA==" class="team-member" onclick="animateAndRedirect(event, this)">Marianna Rago</a> e 
+      <a href="https://www.instagram.com/trendelina.xhafa?igsh=MTk2dXRlN3IwbGlxMw==" class="team-member" onclick="animateAndRedirect(event, this)">Trendelina Xhafa</a> della classe <font title="I migliori">5AU.</font>
+    </p>
+    <p>
+      Tutti i contenuti sono accessibili sia tramite le pagine del sito sia tramite la sidebar a sinistra. 
+      Clicca <a href="Marx.html">qui</a> per iniziare la tua esplorazione.
+    </p>
   </main>
 
-  Hover Preview Box
+  <!-- Hover Preview Box -->
   <div id="preview-box" class="preview-box"></div>
 
   <script>
@@ -59,26 +106,15 @@
       }
     });
 
-    function showPreview(event, url) {
-      const previewBox = document.getElementById("preview-box");
-      previewBox.innerHTML = `<strong>Caricamento anteprima...</strong>`;
-
-      fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
-        .then(response => response.json())
-        .then(data => {
-          previewBox.innerHTML = `<strong>Wikipedia: Collegamento Ipertestuale</strong><br>
-                                  Concetto chiave della navigazione su Internet.
-                                  <br>
-                                  <a href="${url}" target="_blank">Leggi di più</a>`;
-        });
-
-      previewBox.style.display = "block";
-      previewBox.style.left = `${event.pageX}px`;
-      previewBox.style.top = `${event.pageY + 20}px`;
-    }
-
-    function hidePreview() {
-      document.getElementById("preview-box").style.display = "none";
+    // Funzione per animare il link e reindirizzare dopo l'animazione
+    function animateAndRedirect(e, element) {
+      e.preventDefault(); // Previene il redirect immediato
+      element.style.animation = "bounce 0.6s";
+      element.addEventListener("animationend", function() {
+        element.style.animation = "";
+        // Dopo l'animazione, redirige all'URL dell'elemento
+        window.location.href = element.href;
+      }, { once: true });
     }
   </script>
 </body>
