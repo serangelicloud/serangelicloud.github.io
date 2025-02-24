@@ -1,4 +1,5 @@
     
+    console.log("professore non guardi la console è inutile")
     // Wait until the DOM is fully loaded
     document.addEventListener("DOMContentLoaded", function() {
         // Create preview box element dynamically if not already in HTML
